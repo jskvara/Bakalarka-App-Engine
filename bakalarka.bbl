@@ -1,0 +1,19 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[web: Amazon Web Services - EC2()]{amazon-ec2}
+web: Amazon Web Services - EC2.
+\newblock Amazon Elastic ComputeCloud, 2011.
+\newblock \\ \verb|http://aws.amazon.com/ec2/|.
+
+\bibitem[web: NIST - Cloud Computing()]{nist-cloud}
+web: NIST - Cloud Computing.
+\newblock National Institute of Standards and Technology - definice termínu:
+  cloud computing, 2011.
+\newblock \\ \verb|http://www.nist.gov/itl/cloud/index.cfm|.
+
+\end{thebibliography}
