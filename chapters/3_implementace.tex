@@ -1,14 +1,14 @@
 \chapter{Implementace: Vývoj v App Engine}
 
 \section{Výběr cloudu}
-Pro praktickou ukázku a prověření implementace jsem vybral cloud App Engine od společnosti Google. Nejdůležitějším důvodem pro mne byla možnost nahrát plnohodnotnou aplikaci bez nutnosti vynaložení jakýchkoliv nákladů na hosting. Nastavené kvóty od kterých je nutné platit jsou vysoké (odpovídají několika stovkám tisíců požadavkům za den) a stále se spostupně zvyšují. Je tedy možné s tímto cloudem libovolně experimentovat a nahrávat různé testovací aplikace. Mnoho Java vývojářů hledá pro svoje malé aplikace hosting, kde by nemuseli platit, anebo mohli nahrát více aplikací. To je ale problém webového Java světa. Server počítá pouze s jedinou aplikací a je často nutné si pamatovat prostředky a další zdroje v rámci aplikace mezi požadavky. Javovský server tak počítá s tím, že si alokuje většinu dostupné paměti systému. Výhodou je, že nemusíme při každém požadavku vytvářet nové spojení do databáze a k ostatním prostředkům. Naproti tomu u skriptovací jazyků (jako například \verb|PHP| nebo \verb|Python|), se při každém požadavku provede celý kód znovu. Na serveru tak může běžet několik aplikací a zároveň se neovlivňují. V praxi se toho běžně využívá a proto je možné provozovat velké množství takovýchto aplikací na jediném hosting. App Engine nám umožňuje stejný princip pro Javu, běh více aplikací na stejném hardware. Cena za tuto možnost je nutnost uvolnění zdrojů z nepoužívaných aplikací, aby nezabírali místo ostatním. To App Engine sám hlídá a po určité době neaktivity aplikaci odstaví a nahraje aktivní.
+Pro praktickou ukázku a prověření implementace jsem vybral cloud App Engine od společnosti Google. Nejdůležitějším důvodem pro mne byla možnost nahrát plnohodnotnou aplikaci bez nutnosti vynaložení jakýchkoliv nákladů na hosting. Nastavené kvóty od kterých je nutné platit jsou vysoké (odpovídají několika stovkám tisíců požadavkům za den) a stále se postupně zvyšují. Je tedy možné s tímto cloudem libovolně experimentovat a nahrávat různé testovací aplikace. Mnoho Java vývojářů hledá pro svoje malé aplikace hosting, kde by nemuseli platit, anebo mohli nahrát více aplikací. To je ale problém webového Java světa. Server počítá pouze s jedinou aplikací a je často nutné si pamatovat prostředky a další zdroje v rámci aplikace mezi požadavky. Javovský server tak počítá s tím, že si alokuje většinu dostupné paměti systému. Výhodou je, že nemusíme při každém požadavku vytvářet nové spojení do databáze a k ostatním prostředkům. Naproti tomu u skriptovací jazyků (jako například \verb|PHP| nebo \verb|Python|), se při každém požadavku provede celý kód znovu. Na serveru tak může běžet několik aplikací a zároveň se neovlivňují. V praxi se toho běžně využívá a proto je možné provozovat velké množství takovýchto aplikací na jediném hosting. App Engine nám umožňuje stejný princip pro Javu, běh více aplikací na stejném hardware. Cena za tuto možnost je nutnost uvolnění zdrojů z nepoužívaných aplikací, aby nezabírali místo ostatním. To App Engine sám hlídá a po určité době neaktivity aplikaci odstaví a nahraje aktivní.
 
 \section{Aplikace}
-Cílem této bakalářské práce je ověřit možnosti a omezení škálovatelných aplikací. Nejdůležitějším hlediskem je celková rychlost a odezva aplikace v závislosti na počtu souběžných požadavků. Tedy jak bude aplikace a celý cloud reagovat na zvýšený nápor požadavků, jak se s tím cloud vyrovná a zda bude služba stále poutžitelná. Také jsem se zaměřil na rychlost čtení a ukládání do Datastore, pokud je klasická aplikace vystavena vysoké zátěži, je právě databáze úzkým hrdlem (takzvaný \emph{bottleneck}) a přestává stíhat jako první. 
+Cílem této bakalářské práce je ověřit možnosti a omezení škálovatelných aplikací. Nejdůležitějším hlediskem je celková rychlost a odezva aplikace v závislosti na počtu souběžných požadavků. Tedy jak bude aplikace a celý cloud reagovat na zvýšený nápor požadavků, jak se s tím cloud vyrovná a zda bude služba stále použitelná. Také jsem se zaměřil na rychlost čtení a ukládání do Datastore. Pokud je klasická aplikace vystavena vysoké zátěži, je ve většině případů právě databáze úzkým hrdlem (takzvaný \emph{bottleneck}) a přestává stíhat zpracovávat požadavky jako první. 
 
 Kromě ověření rychlosti a škálovatelnosi bylo také cílem vytvořit rozsáhlejší aplikaci a vyzkoušet všechny úskalí, které nám platforma App Engine staví do cesty. To znamená implementace běžných požadavků na aplikace, například M:N\footnote{Many-to-Many - druh relace, kde více entit může být spojeno s více entitami (M:N), v relačních databázích je pro propojení použita spojovací tabulka} relace mezi entitami, zamykání dat proti přepsání a další požadavky, které jsou na aplikace běžně kladeny. Po vytvoření tohoto základu a překonání všech zádrhelů již bude jednoduché takovouto aplikaci upravit pro jiné požadavky, anebo rozšířit o nové funkce.
 
-Jako nejvhodnější řešení pro vyzkoušení implementace jsem vybral jednoduchý systém pro správu obsahu (CMS - Content Management System). Můžeme si tak vytvořit webovou  stránku s plnou administrací, tedy s možností přidávání, úpravy a mazání stránek. Ke každé stránce můžeme přidat šablonu. Mimo samotných stránek lze přidávat, upravovat a mazat i novinky, jedná se o kratší zprávy, pro které je zbytečné vytvářet samostatnou stránku. Ke každé stránce lze také přiřadit štítek (tag), tato možnost nahrazuje kategorie. Výhodou oproti kategoriím, kde může být jeden článek pouze v jedné kategorii je, že článek může být označen více štítky a zároveň jeden štítek může být přiřazen k více článkům. Z těchto údajů pak můžeme generovat takzvané \emph{tag cloudy} (oblaky štítků)\footnote{http://en.wikipedia.org/wiki/Tag\_cloud}, kde velikost štítku určuje jeho význam, čim více článků štítek označuje, tím je důležitější a výraznější. Z hlediska implementace se jedná o vazbu M:N, která se v NoSQL databázích musí implementovat složitěji než v relačních a bylo potřeba vymyslet nejlepší řešení.
+Jako nejvhodnější řešení pro vyzkoušení implementace jsem vybral jednoduchý systém pro správu obsahu (CMS - Content Management System). Můžeme si tak vytvořit webovou  stránku s plnou administrací, tedy s možností přidávání, úpravy a mazání stránek. Ke každé stránce můžeme přidat šablonu. Mimo samotných stránek lze přidávat, upravovat a mazat i novinky, jedná se o kratší zprávy, pro které je zbytečné vytvářet samostatnou stránku. Ke každé stránce lze také přiřadit štítek (tag), tato možnost nahrazuje kategorie. Výhodou oproti kategoriím, kde může být jeden článek pouze v jedné kategorii je, že článek může být označen více štítky a zároveň jeden štítek může být přiřazen k více článkům. Z těchto údajů pak můžeme generovat takzvané \emph{tag cloudy} (oblaky štítků)\footnote{http://en.wikipedia.org/wiki/Tag\_cloud}, kde velikost štítku určuje jeho význam, čím více článků štítek označuje, tím je důležitější a výraznější. Z hlediska implementace se jedná o vazbu M:N, která se v NoSQL databázích musí implementovat složitěji než v relačních a bylo potřeba vymyslet vyhovující řešení.
 
 \section{Výběr frameworku: Slim3}
 Než jsem začal aplikaci psát, zjišťoval jsem, které knihovny a frameworky\footnote{Framework je ucelený soubor knihoven a kódu pomáhající vytvořit aplikaci} bych mohl použít na ulehční práce. Kvůli omezením nejsou podporovány všechny knihovny a některé potřebují speciální úpravy anebo nastavení. Další nevýhodou je, že čím je náš kód rozsáhleší, tím déle bude trvat načítání, pokaždé když bude App Engine nahrávat aplikaci do aktivního stavu. Tímto jsem eliminoval známé, ale velké frameworky jako jsou Spring\footnote{Spring Framework - http://www.springsource.org/} a Seam\footnote{Seam Framework - http://seamframework.org/}. Poté jsem hledal mezi menšími, ale žádný nevyhovoval úplně potřebám App Engine. Bohužel je tento cloud relativně mladý a tak pro něj neexistují frameworky, anebo jsou málo známé. Myslel jsem tedy že použiji přímočaré řešení pomocí servletů a naprogramuji aplikaci od základů. Naštěstí jsem ale náhodou narazil na framework Slim3\footnote{Slim3 - http://sites.google.com/site/slim3appengine/} určený přesně pro potřeby App Engine.
@@ -16,6 +16,133 @@ Než jsem začal aplikaci psát, zjišťoval jsem, které knihovny a frameworky\
 Slim3 je MVC\footnote{Model View Controller - http://en.wikipedia.org/wiki/Model-view-controller}
 framework optimalizovaný pro App Engine, přináší rozšíření i jednodušší práci s Datastore API a další vylepšení. Jeho hlavní koncepty jsou: \emph{simple} (jednoduchý) a \emph{less is more} (méně je více), tedy že jednoduchost a srozumitelnost vedou ke správnému designu. Framework se drží Paretova pravidla, tedy že 80\% aplikace, pramení z 20\% práce, takže se snaží co nejvíce zjednodušit oněch 20\% a ve zbytku nechává programátorovi volnost.
 
-Nejvíce nám framework pomáhá při práci s Datastore. Pokud s uložištěm chceme pracovat, máme na App Engine možnost použít klasické JPA\footnote{JPA - Java Presistence API - http://en.wikipedia.org/wiki/Java\_Persistence\_API} s těmito omezeními: nemůžeme použít vztah \verb|many-to-many|, v dotazu nemůžeme použít \verb|JOIN| a agregační funkce ( \verb|GROUP BY|,  \verb|HAVING|,  \verb|SUM|,  \verb|AVG|,  \verb|MAX| a  \verb|MIN|) a polymorfické dotazy (slouží k získání podtřídy). Druhou možností je použít JDO\footnote{JDO - Java Data Obects - http://en.wikipedia.org/wiki/Java\_Data\_Objects}, jedná se o obecněší obdobu JPA, kde můžeme náš doménový model ukládat do různých uložišť - relačních, nerelačních, objektových databází,  XML i do obyčejných souborů. Programátorská práce je stejná jako s JPA, definujeme model pomocí anotací\footnote{Anotace v Jazyce java představují speciální konstrukce začínající @ a přidávající ke kódu dále zpracovatelné metainformace} a dotazujeme se pomocí objektu \verb|Query|. Poslední možností je použít přímo Datastore API, které je optimalizované pro práci s BigTable, Dovoluje nám měnit strukturu entit za běhu. Znamená to, že se nemůžeme spolehnout na to, že je daný sloupec v entitě obsažen, ani na jeho typ. Sloupce u entity je vlastně kolekce objektů, v Javě by BigTable vypadala následovně: \verb|Map<Key, Set<Object>>|. Toto je důležité uvědomit si a může nám to přinést potíže v začátcích, dobrou radou je ukládat si přímo do objektu i verzi schématu, při změně v aplikaci se totiž schémata uložených entit nezmění. 
+Tento framework vzniknul již v dubnu roku 2009, takže se nejedná o úplně nový projekt. Na internetu je k dispozici přehledná dokumentace a dvě diskuzní skupiny, jedna pro anglicky mluvící vývojáře\footnote{http://groups.google.com/group/slim3-user} a druhá pro japonské programátory\footnote{https://groups.google.com/group/slim3-user-japan?hl=ja}. To proto, že vývojáři Slim3 pocházejí z Japonska, a dokonce o tomto frameworku vydali i knihu\footnote{http://www.amazon.co.jp/exec/obidos/ASIN/4798026999/hatena-hamazou-22/}, bohužel je celá také v Japonštině. Autoři i komunita jsou aktivní a reagují na všechny změny App Engine SDK\footnote{Software Development Kit - sada vývojářských nástrojů určených pro speciální aplikci nebo platformu} i připomínky a chyby na diskusních fórech. Díky této zpětné vazbě dokázali programátoři frameworku překonat některé počáteční problémy a zádrhele a nyní již upravují kód pro jednodušší práci s App Enginem. Mimo frameworku samothého je vyvíjen i Slim3 Eclipse plugin\footnote{http://sites.google.com/site/slim3appengine/documents/eclipse-plugin}, který umí generovat některé části kódu a usnadňuje vývoj. Všechny zdrojové kódy jsou open source a jsou tedy zdarma dostupné v SVN repozitáři projektu\footnote{Zdrojové kódy frameworku Slim3 -http://code.google.com/p/slim3/source/browse/}.
 
-Další změnou jsou transakce, pro správné fungování potřebujeme, aby byl všechny typy entity používané v transakci na jednom stroji. Toto může být problém, jelikož Google má několik datacenter a není tak jisté, že budou všechny entity pohromadě. Kvůli tomuto zavádí App Engine takzvané \emph{entity groups} (skupiy entit). Entity přiřadíme do stejné skupiny tak, že nové entitě nastavíme tzv. \emph{parent entity} (rodičovskou entitu), její klíč pak bude složen z kílče samotné entity a klíče rodičovské entity. Pokud se pokusíe provést operace v tansakci na entitách z rozdílných skupin, vyhodí App Engine výjimku.
+\section{Práce s Datastore API s pomocí Slim3 framworku}
+Nejvíce nám framework pomáhá při práci s Datastore. Pokud s uložištěm chceme pracovat, máme na App Engine možnost použít klasické JPA\footnote{JPA - Java Presistence API - http://en.wikipedia.org/wiki/Java\_Persistence\_API} s těmito omezeními: nemůžeme použít vztah \verb|many-to-many|, v dotazu nemůžeme použít \verb|JOIN| a agregační funkce ( \verb|GROUP BY|,  \verb|HAVING|,  \verb|SUM|,  \verb|AVG|,  \verb|MAX| a  \verb|MIN|) a polymorfické dotazy (slouží k získání podtřídy). Druhou možností je použít JDO\footnote{JDO - Java Data Obects - http://en.wikipedia.org/wiki/Java\_Data\_Objects}, jedná se o obecněší obdobu JPA, kde můžeme náš doménový model ukládat do různých uložišť - relačních, nerelačních, objektových databází,  XML i do obyčejných souborů. Programátorská práce je stejná jako s JPA, definujeme model pomocí anotací\footnote{Anotace v Jazyce java představují speciální konstrukce začínající @ a přidávající ke kódu dále zpracovatelné metainformace} a dotazujeme se pomocí objektu \verb|Query|. Poslední možností je použít přímo Datastore API, které je optimalizované pro práci s BigTable\footnote{http://en.wikipedia.org/wiki/BigTable}. Dovoluje nám měnit strukturu entit za běhu. Znamená to, že se nemůžeme spolehnout na to, že je daný sloupec v entitě obsažen, ani na jeho typ. Sloupce u entity je vlastně kolekce objektů, v Javě by BigTable vypadala následovně: \verb|Map<Key, Set<Object>>|. Toto je důležité uvědomit si a může nám to přinést potíže v začátcích, dobrou radou je ukládat si přímo do objektu i verzi schématu, při změně v aplikaci se totiž schémata uložených entit nezmění. 
+
+Další změnou jsou transakce, pro správné fungování potřebujeme, aby byl všechny typy entity používané v transakci na jednom stroji. Toto může být problém, jelikož Google má několik datacenter a není tak jisté, že budou všechny entity pohromadě. Kvůli tomuto zavádí App Engine takzvané \emph{entity groups} (skupiny entit). Entity přiřadíme do stejné skupiny tak, že nové entitě nastavíme tzv. \emph{parent entity} (rodičovskou entitu), její klíč pak bude složen z klíče samotné entity a klíče rodičovské entity. Pokud se pokusíme provést operace v transakci na entitách z rozdílných skupin, vyhodí App Engine výjimku.
+
+Uložiště dat na App Engine nepodporuje relace, na které jsme zvyklí z relačních databází pomocí cizích klíčů (tzv. \emph{foreign keys}), můžeme ale tyto relace použít pomocí spojení přes klíče entit \verb|Key|. Největším zádrhelem je, že se musíme sami posatart o referenční integritu a spojení těchto relací. To znamená, že pokud například smažeme jednu entitnu, musíme zrušit i všechny vazby, ve kterých se daná entita vyskytuje. Existují tři základní typy vztahů: \emph{one-to-one} (1:1), \emph{one-to-many} (1:M) / \emph{many-to-one} (M:1) a \emph{many-to-many} (M:N), dále rozlišujeme \emph{unidirectional} (jednosměrné) a \emph{bidirectional} (obousměrné) vazby. 
+
+Slim3 nám práci s vazbami velmi usnadňuje a stará se o závislosti. Pomocí speciálních anotací můžeme označit entity a z těchto údajů pak plugin vygeneruje javovské \emph{meta třídy}. Výhoda tohoto přístupu je v rychlosti, údaje by se mohly získávat při každém použítí pomocí reflexe\footnote{Způsob zjišťování metadat (například typ objeky a podobně) a modifikace programu za běhu}, ale ta je obecně  prokázána jako o dosti pomalejší. Takto stačí vygenerovat meta třídy pouze při každé změně a o toto přegenerování se stará Slim3 Eclipse plugin. Výsledky porovnání čtení 100~000 entit z Datastore při použití Datastore API, Slim3 a JDO jsou přímo na stránkách frameworku i s funkční ukázkou (http://slim3demo.appspot.com/performance/), Datastore API vychází nejrychleji, asi desítky milisekund, druhý v pořadí je Slim3 přibližně 4~000 milisekund a nejhůře vyšel v testu podle očekávání JDO přístup, který trval třibližně 12~000 milisekund. 
+
+Slim3 nám dále umožňuje do entitních tříd přidat i proměné odkazující na další entity. Používá k tomu třídu \verb|ModelRef<Entity>| pro jednosměrný vztah a \verb| InverseModelRef<Entity1, Entity2>| pro obousměrné vztahy na inverzní straně relace. Získat entity ze vztahu \emph{one-to-many} pak můžeme vypadat následovně: \ref{lst:unidirectionalManyToOneGetEntity}
+
+\begin{lstlisting}[caption={Získání entity},label=lst:unidirectionalManyToOneGetEntity,belowcaptionskip=0.4cm]
+@Model
+public class Employee {
+	@Attribute(primaryKey = true)
+	private Key key;
+	
+	private ModelRef<Department> departmentRef 
+		= new ModelRef<Department>(Department.class);
+	
+	// ... other properties + getters and setters
+}
+
+Employee employee = Datastore.get(Employee.class, employeeKey);
+Department department = employee.getDepartmentRef().getModel();
+\end{lstlisting}
+
+A u obousměného propojení one-to-many relace získáme entity tímto způsobem: \ref{lst:bidirectionalOneToManyGetEntity}
+
+\begin{lstlisting}[caption={Získání entit ze vztahu many-to-many},label=lst:unidirectionalManyToOneGetEntity,belowcaptionskip=0.4cm]
+@Model
+public class Employee {
+	@Attribute(primaryKey = true)
+	private Key key;	
+	
+	private ModelRef<Department> departmentRef 
+		= new ModelRef<Department>(Department.class);
+	
+	// ... other properties + getters and setters
+}
+
+@Model
+public class Department {
+	@Attribute(primaryKey = true)
+	private Key key;
+	
+	@Attribute(persistent = false)
+	private InverseModelListRef<Employee, Department> employeeListRef =
+		new InverseModelListRef<Employee, Department>(Employee.class,
+		 "departmentRef", this);
+
+	// ... other properties + getters and setters
+}
+
+Department department = Datastore.get(Department.class, departmentKey);
+List<Employee> employeeList = department.getEmployeeListRef().getModelList();
+\end{lstlisting}
+
+Vazba M:N se realizuje pomocí dvou spojení \emph{one-to-many} a spojovací tabulky \ref{lst:manyToManyJoinTable}, kde máme dvě položky, první je klíč do jedné entity a druhou je klíč ke druhé entitě. 
+
+\begin{lstlisting}[caption={Ukázka many-to-many vztahu s použitím spojovací entitní třídy},label=lst:manyToManyJoinTable,belowcaptionskip=0.4cm]
+@Model
+public class EmployeeProject {
+	@Attribute(primaryKey = true)
+	private Key key;
+
+	private ModelRef<Employee> employeeRef = 
+		new ModelRef<Employee>(Employee.class);
+
+	private ModelRef<Project> projectRef = 
+		new ModelRef<Project>(Project.class);
+
+	// ... other properties + getters and setters
+}
+
+@Model
+public  class  Employee {
+	@Attribute(primaryKey =  true)
+	private  Key  key;
+
+	@Attribute(persistent = false)
+	private  InverseModelListRef<EmployeeProject, Employee>  employeeProjectListRef =
+		new  InverseModelListRef<EmployeeProject, Employee>(EmployeeProject.class,  "employeeRef", this);
+
+     // ... other properties + getters and setters
+}
+
+@Model
+public class Project {
+	@Attribute(primaryKey =  true)
+	private  Key  key;
+
+	@Attribute(persistent = false)
+	private  InverseModelListRef<EmployeeProject, Project>  employeeProjectListRef =
+		new  InverseModelListRef<EmployeeProject, Project>(EmployeeProject.class,  "projectRef", this);
+
+     // ... other properties + getters and setters
+}
+
+Employee employee = Datastore.get(Employee.class, employeeKey);
+for (EmployeeProject ep : employee.getEmployeeProjectRef().getModelList()) {
+	Project project = ep.getProjectRef().getModel();
+}
+
+Project project =  Datastore.get(Project.class, projectKey);
+for (EmployeeProject ep : project.getEmployeeProjectRef().getModelList()) {
+	Employee employee = ep.getEmployeeRef().getModel();
+}
+\end{lstlisting}
+
+
+Takto lze realizovat všechny druhy spojení včetně obousměrných variant, o většinu rutinní práce se postará vygenerovaný metamodel entit a umožňuje programátorovi soistředit se jen na správné vzájemné nastavení spojení.
+
+\section{Slim3 Controller}
+Slim3 nám kromě ulehčení práce s Datastore pomáhá i v Controller vrstvě návrhového vzoru MVC. Tato část se stará o řízení požadavků od uživatele, to znamená, že pokud navštíví určitou URL adresu, tak framework přesměruje požadavek do správného controlleru. Překlad funguje následujícím způsobem, pokud navštívíme základní URL \verb|/|, použije se třída \verb|IndexController| ze základního javovského balíčku (package) aplikace. Pokud navštívíme konkrétní stánku, například \verb|/page|, použije se třída \verb|PageController| ze základního balíčku. Dále pokud navštívíme podstránku \verb|/page/subpage| použije se třídat \verb|SubpageController|  (tedy první písmeno je velké, jak je u tříd v Javě zvykem, a přidá se \verb|Controller|) z balíku \verb|page| a tak dále, můžeme do sebe vnořovat libovolný počet balíků a vždy když bude URL končit \verb|/| použije se \verb|IndexController| aktuálního balíku. 
+
+Dalěím vylepšením je možnost konvertovat parametry URL na GET\footnote{GET je parametr HTTP protokolu, kde se proměnné přenášejí v URL, například: url?klic=hodnota\&klic2=hodnota2} parametry zpracovatelné pomocí \verb|request.getParameter|. Vše se konfiguruje ve třídě \verb|AppRouter| následujícím způsobem:
+
+\begin{lstlisting}[caption={Caption},label=lst:entity,belowcaptionskip=0.4cm]
+public class AppRouter extends RouterImpl {
+	public AppRouter() {
+		addRouting("/edit/{key}/{version}", 
+			"/edit?key={key}&version={version}");
+	}
+}
+\end{lstlisting}
+
+URL \verb|/edit/xxx/1| se převede na \verb|/edit?key=xxx&version=1|, použije se tedy \verb|EditController| a v parametrech objektu \verb|Request| bude: \verb|key=xxx| a \verb|version=1|. \verb|EditController| je pak obyčejná třída dědící od třídy \verb|Controller|, kde přepíšeme metodu \verb|runBare()| s naší požadovanou funkčností. Máme zde dostupné všechny objekty jako máme k dispozici v servletu\footnote{Servlet je komponenta napsaná v jazyce Java, určená pro spouštění na webovém serveru}, jsou zde tedy: \verb|Request|, \verb|Response| i \verb|ServletContext|.

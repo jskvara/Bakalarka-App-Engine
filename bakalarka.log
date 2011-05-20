@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  19 MAY 2011 01:16
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  20 MAY 2011 23:46
 entering extended mode
  %&-line parsing enabled.
 **bakalarka.tex
@@ -303,7 +303,34 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 )
 (./k336_thesis_macros.sty
 Two side layout redefined.
-(./hyphen.tex))
+(./hyphen.tex)) (/usr/share/texmf-texlive/tex/latex/listings/listings.sty
+\lst@mode=\count91
+\lst@gtempboxa=\box26
+\lst@token=\toks17
+\lst@length=\count92
+\lst@currlwidth=\dimen106
+\lst@column=\count93
+\lst@pos=\count94
+\lst@lostspace=\dimen107
+\lst@width=\dimen108
+\lst@newlines=\count95
+\lst@lineno=\count96
+\lst@maxwidth=\dimen109
+
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count97
+\lst@skipnumbers=\count98
+\lst@framebox=\box27
+)
+(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
 Bakalarska prace
 (/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
@@ -326,9 +353,9 @@ O)
 (/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
-\@linkdim=\dimen106
-\Hy@linkcounter=\count91
-\Hy@pagecounter=\count92
+\@linkdim=\dimen110
+\Hy@linkcounter=\count99
+\Hy@pagecounter=\count100
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -405,10 +432,10 @@ Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 )))
-\Fld@menulength=\count93
-\Field@Width=\dimen107
-\Fld@charsize=\dimen108
-\Field@toks=\toks17
+\Fld@menulength=\count101
+\Field@Width=\dimen111
+\Fld@charsize=\dimen112
+\Field@toks=\toks18
 Package hyperref Info: Hyper figures OFF on input line 4377.
 Package hyperref Info: Link nesting OFF on input line 4382.
 Package hyperref Info: Hyper index ON on input line 4385.
@@ -420,54 +447,60 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count94
-\c@Item=\count95
-\c@Hfootnote=\count96
+\Hy@abspage=\count102
+\c@Item=\count103
+\c@Hfootnote=\count104
 )
 *hyperref using default driver hpdftex*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
-\Fld@listcount=\count97
+\Fld@listcount=\count105
 )
 (/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty
 Package: natbib 2009/07/16 8.31 (PWD, AO)
 \bibhang=\skip43
 \bibsep=\skip44
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count98
-) (./bakalarka.aux)
+\c@NAT@ctr=\count106
+) (./bakalarka.aux
+(./chapters/2_teorie.aux) (./chapters/3_implementace.aux
+
+LaTeX Warning: Label `lst:unidirectionalManyToOneGetEntity' multiply defined.
+
+))
 \openout1 = `bakalarka.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-
-(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+ (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count99
-\scratchdimen=\dimen109
-\scratchbox=\box26
-\nofMPsegments=\count100
-\nofMParguments=\count101
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count102
-\MPscratchDim=\dimen110
-\MPnumerator=\count103
-\everyMPtoPDFconversion=\toks19
-) (/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+\scratchcounter=\count107
+\scratchdimen=\dimen113
+\scratchbox=\box28
+\nofMPsegments=\count108
+\nofMParguments=\count109
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen114
+\MPnumerator=\count111
+\everyMPtoPDFconversion=\toks20
+)
+\c@lstlisting=\count112
+ (/usr/share/texmf-texlive/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
 (/etc/texmf/tex/latex/config/color.cfg
@@ -475,7 +508,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 134.
+Package hyperref Info: Link coloring ON on input line 144.
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
@@ -483,16 +516,16 @@ Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count104
+\c@section@level=\count113
 )
-LaTeX Info: Redefining \ref on input line 134.
-LaTeX Info: Redefining \pageref on input line 134.
+LaTeX Info: Redefining \ref on input line 144.
+LaTeX Info: Redefining \pageref on input line 144.
  (./bakalarka.out)
 (./bakalarka.out)
 \@outlinefile=\write3
 \openout3 = `bakalarka.out'.
 
-\AtBeginShipoutBox=\box27
+\AtBeginShipoutBox=\box29
 
 ************************************************
 Zvoleny jazyk: cestina
@@ -505,13 +538,13 @@ Nazev prace: Ov\IeC {\v e}\IeC {\v r}en\IeC {\'\i } \IeC {\v s}k\IeC {\'a}lovat
 elnosti Google App Engine aplikac\IeC {\'\i } 
 Vedouci prace: Ing Marek \IeC {\v S}m\IeC {\'\i }d
 ***************************************************
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 193.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 203.
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 193.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 203.
  [1
 
 
@@ -519,7 +552,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-<figures/LogoCVUT.pdf, id=16, 93.34875pt x 70.2625pt>
+<figures/LogoCVUT.pdf, id=172, 93.34875pt x 70.2625pt>
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
 <use figures/LogoCVUT.pdf> [3 <./figures/LogoCVUT.pdf>] [4
@@ -533,32 +566,35 @@ File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
 ] [10
 
-]
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+] (./bakalarka.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 5.
+ [11])
 \tf@toc=\write4
 \openout4 = `bakalarka.toc'.
 
-[11] [12
+ [12] (./bakalarka.lof
 
-]
+Package natbib Warning: Citation `whitehouse-app' on page xiii undefined on inp
+ut line 5.
 
-Package hyperref Warning: old lof file detected, not used; run LaTeX again.
-
+)
 \tf@lof=\write5
 \openout5 = `bakalarka.lof'.
 
-[13] [14
+ [13
 
-]
+] [14
 
-Package hyperref Warning: old lot file detected, not used; run LaTeX again.
-
+] (./bakalarka.lot)
 \tf@lot=\write6
 \openout6 = `bakalarka.lot'.
 
-[15] [16
+ [15] [16
 
 ]
 Kapitola 1.
@@ -584,12 +620,6 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 18.
 (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [3]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 28.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 28.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 28.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 28.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -658,7 +688,7 @@ Overfull \hbox (5.26723pt too wide) in paragraph at lines 115--116
 Package natbib Warning: Citation `whitehouse-app' on page 11 undefined on input
  line 117.
 
-<figures/townhallgraphic.png, id=173, 1606.0pt x 952.55875pt>
+<figures/townhallgraphic.png, id=364, 1606.0pt x 952.55875pt>
 File: figures/townhallgraphic.png Graphic file (type png)
 
 <use figures/townhallgraphic.png>
@@ -671,7 +701,7 @@ Package natbib Warning: Citation `whitehouse-app' on page 11 undefined on input
  line 122.
 
 [11 <./figures/townhallgraphic.png>])
-Overfull \hbox (93.61845pt too wide) in paragraph at lines 135--291
+Overfull \hbox (93.61845pt too wide) in paragraph at lines 135--301
 []\T1/cmr/m/n/10.95 Dal²í za-jí-mavé a úsp¥²né pro-jekty jsou na stránce: []\T1
 /cmtt/m/n/10.95 http://code.google.com/appengine/casestudies.html 
  []
@@ -697,52 +727,81 @@ o-vatel-ných ap-likací. Ne-jd·leºit¥j²ím
 
 
 
-] [14]) [15] [16
+] [14] [15]
+Overfull \hbox (3.59604pt too wide) in paragraph at lines 28--29
+\T1/cmr/m/n/10.95 na stránkách frame-worku i s funk£ní ukázkou (http://slim3dem
+o.appspot.com/performance/),
+ []
+
+
+Overfull \hbox (67.509pt too wide) in paragraph at lines 30--31
+\T1/cmr/m/n/10.95 Pouºívá k tomu t°ídu []\T1/cmtt/m/n/10.95 ModelRef<Entity> \T
+1/cmr/m/n/10.95 pro jed-nos-m¥rný vz-tah a [] \T1/cmtt/m/n/10.95 InverseModelRe
+f<Entity1, Entity2>
+ []
+
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 34.
+
+LaTeX Warning: Reference `lst:bidirectionalOneToManyGetEntity' on page 16 undef
+ined on input line 48.
+
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+[][][]\T1/cmr/m/n/9 GET je parametr HTTP pro-tokolu, kde se prom¥nné p°ená²ejí 
+v URL, nap°ík-lad:
+ []
+
+)
+Overfull \hbox (21.68277pt too wide) in paragraph at lines 150--306
+[]\T1/cmr/m/n/10.95 URL []\T1/cmtt/m/n/10.95 /edit/xxx/1 \T1/cmr/m/n/10.95 se p
+°evede na []\T1/cmtt/m/n/10.95 /edit?key=xxx&version=1\T1/cmr/m/n/10.95 , pouºi
+je se tedy []\T1/cmtt/m/n/10.95 EditController
+ []
+
+[18] [19] [20
 
 
 ]
 Kapitola 4.
-[17] [18
+[21] [22
 
 ]
 Kapitola 5.
-[19] [20
+[23] [24
 
 ]
 Kapitola 6.
-(./bakalarka.bbl) [21] [22
+No file bakalarka.bbl.
+[25] [26
 
 ]
 P\v {r}\'{\i }loha A.
-[23] [24] [25] [26]
+[27] [28] [29] [30]
 P\v {r}\'{\i }loha B.
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
-<use figures/LogoCVUT.pdf> [27
+<use figures/LogoCVUT.pdf> [31
 
-]
-
-LaTeX Warning: Reference `tab:tab1' on page 28 undefined on input line 464.
-
-[28] [29] [30] [31] [32]
+] [32] [33] [34] [35] [36]
 P\v {r}\'{\i }loha C.
-[33
+[37
 
-] [34
+] [38
 
 ]
 P\v {r}\'{\i }loha D.
-[35] [36
+[39] [40
 
 ]
 P\v {r}\'{\i }loha E.
-[37] [38
+[41] [42
 
 ]
 P\v {r}\'{\i }loha F.
-<figures/seznamcd.pdf, id=355, 793.96625pt x 539.01375pt>
+<figures/seznamcd.pdf, id=657, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
 
-<use figures/seznamcd.pdf> [39 <./figures/seznamcd.pdf>] [40]
+<use figures/seznamcd.pdf> [43 <./figures/seznamcd.pdf>] [44]
 
 Package natbib Warning: There were undefined citations.
 
@@ -751,38 +810,39 @@ Package natbib Warning: There were undefined citations.
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6738 strings out of 495061
- 89136 string characters out of 1182622
- 165400 words of memory out of 3000000
- 9657 multiletter control sequences out of 15000+50000
- 21222 words of font info for 46 fonts, out of 3000000 for 9000
+ 8632 strings out of 495061
+ 114259 string characters out of 1182622
+ 406271 words of memory out of 3000000
+ 11414 multiletter control sequences out of 15000+50000
+ 21537 words of font info for 47 fonts, out of 3000000 for 9000
  32 hyphenation exceptions out of 8191
- 38i,9n,38p,2462b,468s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home
-/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/skvaros/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/skvaros/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/skvaros/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecrm0800.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ectt1095.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecbx1095.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti10
+ 38i,9n,40p,2462b,1843s stack positions out of 5000i,500n,10000p,200000b,50000s
+ </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home
+/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecit0900.600pk> </home/skvaros/
+.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home/skvaros/.texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/skvaros/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecrm0900.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/
+jknappen/ec/ecrm0800.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ectt1095.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti10
 95.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1095.600pk>
- </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/s
-kvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/skvaros/.t
-exmf-var/fonts/pk/ljfour/jknappen/ec/ecti1440.600pk> </home/skvaros/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/skvaros/.texmf-var/fonts/pk/
-ljfour/jknappen/ec/ecrm1200.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jk
-nappen/ec/ecrm1095.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecbx2488.600pk></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10
-.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on bakalarka.pdf (56 pages, 886120 bytes).
+ </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/s
+kvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/skvaros/.t
+exmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/skvaros/.texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecti1440.600pk> </home/skvaros/.texmf-var/fonts/pk/
+ljfour/jknappen/ec/ecbx1440.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jk
+nappen/ec/ecrm1200.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecrm1095.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488
+.600pk></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texm
+f-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on bakalarka.pdf (60 pages, 973507 bytes).
 PDF statistics:
- 1246 PDF objects out of 1440 (max. 8388607)
- 132 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1665 PDF objects out of 1728 (max. 8388607)
+ 244 named destinations out of 1000 (max. 500000)
+ 328 words of extra memory for PDF output out of 10000 (max. 10000000)
 
