@@ -12,33 +12,33 @@
 \contentsline {subsection}{\numberline {2.5.3}Google App Engine}{7}{subsection.2.5.3}
 \contentsline {section}{\numberline {2.6}API slu\IeC {\v z}by}{9}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}Datastore}{9}{subsection.2.6.1}
-\contentsline {subsection}{\numberline {2.6.2}Mail}{9}{subsection.2.6.2}
-\contentsline {subsection}{\numberline {2.6.3}XMPP}{9}{subsection.2.6.3}
-\contentsline {subsection}{\numberline {2.6.4}Task Queues}{9}{subsection.2.6.4}
+\contentsline {subsection}{\numberline {2.6.2}Mail}{10}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}XMPP}{10}{subsection.2.6.3}
+\contentsline {subsection}{\numberline {2.6.4}Task Queues}{10}{subsection.2.6.4}
 \contentsline {subsection}{\numberline {2.6.5}URL Fetch}{10}{subsection.2.6.5}
 \contentsline {subsection}{\numberline {2.6.6}Blobstore}{10}{subsection.2.6.6}
-\contentsline {subsection}{\numberline {2.6.7}Images}{10}{subsection.2.6.7}
+\contentsline {subsection}{\numberline {2.6.7}Images}{11}{subsection.2.6.7}
 \contentsline {subsection}{\numberline {2.6.8}Users}{11}{subsection.2.6.8}
 \contentsline {subsection}{\numberline {2.6.9}OAuth}{11}{subsection.2.6.9}
-\contentsline {subsection}{\numberline {2.6.10}Capabilities}{11}{subsection.2.6.10}
-\contentsline {subsection}{\numberline {2.6.11}Channel}{11}{subsection.2.6.11}
-\contentsline {subsection}{\numberline {2.6.12}Multitenancy}{11}{subsection.2.6.12}
+\contentsline {subsection}{\numberline {2.6.10}Capabilities}{12}{subsection.2.6.10}
+\contentsline {subsection}{\numberline {2.6.11}Channel}{12}{subsection.2.6.11}
+\contentsline {subsection}{\numberline {2.6.12}Multitenancy}{12}{subsection.2.6.12}
 \contentsline {section}{\numberline {2.7}Omezen\IeC {\'\i } cloudu}{12}{section.2.7}
-\contentsline {section}{\numberline {2.8}V\IeC {\'y}voj pro App Engine}{12}{section.2.8}
-\contentsline {section}{\numberline {2.9}Zaj\IeC {\'\i }mav\IeC {\'e} aplikace}{13}{section.2.9}
-\contentsline {section}{\numberline {2.10}Budoucnost cloud\IeC {\r u}}{14}{section.2.10}
+\contentsline {section}{\numberline {2.8}V\IeC {\'y}voj pro App Engine}{13}{section.2.8}
+\contentsline {section}{\numberline {2.9}Zaj\IeC {\'\i }mav\IeC {\'e} aplikace}{14}{section.2.9}
+\contentsline {section}{\numberline {2.10}Budoucnost cloud\IeC {\r u}}{15}{section.2.10}
 \contentsline {chapter}{\numberline {3}Implementace: V\IeC {\'y}voj v App Engine}{17}{chapter.3}
 \contentsline {section}{\numberline {3.1}V\IeC {\'y}b\IeC {\v e}r cloudu}{17}{section.3.1}
 \contentsline {section}{\numberline {3.2}Aplikace}{17}{section.3.2}
 \contentsline {section}{\numberline {3.3}V\IeC {\'y}b\IeC {\v e}r frameworku: Slim3}{18}{section.3.3}
 \contentsline {section}{\numberline {3.4}Pr\IeC {\'a}ce s Datastore API s pomoc\IeC {\'\i } Slim3 framworku}{19}{section.3.4}
 \contentsline {section}{\numberline {3.5}Model aplikace}{22}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Entity a metat\IeC {\v r}\IeC {\'\i }dyentit}{22}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.1}Entity a metat\IeC {\v r}\IeC {\'\i }dy entit}{22}{subsection.3.5.1}
 \contentsline {subsection}{\numberline {3.5.2}DAO}{23}{subsection.3.5.2}
 \contentsline {subsection}{\numberline {3.5.3}Service}{23}{subsection.3.5.3}
 \contentsline {subsection}{\numberline {3.5.4}Converter}{23}{subsection.3.5.4}
 \contentsline {subsection}{\numberline {3.5.5}Validator}{23}{subsection.3.5.5}
-\contentsline {subsection}{\numberline {3.5.6}DTO}{23}{subsection.3.5.6}
+\contentsline {subsection}{\numberline {3.5.6}DTO}{24}{subsection.3.5.6}
 \contentsline {section}{\numberline {3.6}Propojen\IeC {\'\i } modelu - Google Guice}{24}{section.3.6}
 \contentsline {section}{\numberline {3.7}Slim3 Controller}{25}{section.3.7}
 \contentsline {section}{\numberline {3.8}View vrstva}{26}{section.3.8}

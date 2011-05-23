@@ -134,13 +134,13 @@ Takto lze realizovat všechny druhy spojení včetně obousměrných variant, o 
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=3.5in]{figures/cms-uml.png}
+\includegraphics[width=5in]{figures/cms-uml.png}
 \caption{Diagram tříd modelu}
 \label{fig:modelUml}
 \end{center}
 \end{figure}
 
-\subsection{Entity a metatřídyentit}
+\subsection{Entity a metatřídy entit}
 Framework nám kromě obalení Datastore API z App Engine nedává moc dalších rozšíření pro část modelu návrhového vzoru MVC. Chtěl jsem mít model rozdělený do více samostatných a vyměnitelných vrstev. Model mé aplikace tedy vypadá následovně. Entity z Datastore jsou v Javě reprezentovány doménovým modelem entitních tříd. Každé entitě odpovídá jedna třída s klíčem \verb|Key| a nastavenými třídními proměnnými jako parametry entity v uložišti. Tyto třídy jsou označeny anotacemi (například \verb|@Model|, \verb|@Attribute(primaryKey = true)|), jak bylo vidět na výpisech výše, což slouží ke generování metatříd. 
 
 \subsection{DAO}

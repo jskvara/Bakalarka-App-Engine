@@ -71,12 +71,39 @@ Pokud budeme chtít přenést službu k jinému poskytovateli cloudu, bude nám 
 Největší konkurenti Google App Engine jsou Amazon Web Services - EC2 (Elastic Compute Cloud) a Microsoft Azure. Pokud budemem mít zakázku, pro kterou je nejvýhodnější použit cloudovou infrastrukturu, budeme se pravděpodobně rozhodovat mezi těmito třemi, jedná se o velké a známé společnosti s rozsáhlým zázemím. Je tedy málo pravděpodobné, že by ze dne na den přestaly provozovat svoje služby, což může být velký problém u menších nebo méně znamých společnotí.
 
 \subsection{Amazon Web Services - Elastic Compute Cloud}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=1.5in]{figures/aws-logo.png}
+\caption{Amazon Web Services - logo}
+\label{fig:aws-logo}
+\end{center}
+\end{figure}
+
 Amazon EC2 je spíše blíže modelu IaaS, takže dostaneme hardware s kterým si můžeme dělat co chceme, instalovat libovolný software a musíme si ho sami spravovat. Největší výhodou je rychlé přidávání nových serverů kdykoliv potřebujueme a platba jen za spotřebované zdroje. Navíc není tento cloud vázán žádnými API a omezeními, takže pokud budeme chtít přesunout naši aplikaci na náš server, tak nebudeme muset měnit aplikaci a to platí i naopak, tedy pro přesun aplikace na cloud. Jedná se čistě o pronájem hardwaru. Neýhoda Amazon Web Services je v tom, že platíme hned jakmile nahrejeme naši aplikaci, neexistují žádné volné kvóty jako u App Engine. Amazon v rámci svých služeb nabízí i další možnosti, například speciální relační i nerelační uložiště a další produkty, celý seznam je možné najít na stránce \verb|http://aws.amazon.com/products/|. 
 
 \subsection{Microsoft Azure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=1.5in]{figures/azure-logo.jpg}
+\caption{Windows Azure - logo}
+\label{fig:azure-logo}
+\end{center}
+\end{figure}
+
 Microsoft Azure je již více podobný App Engine, jedná se o PaaS, máme zde již připravené prostředí pro několik jazyků: .NET (C\# a VisualBasic), C++, PHP, Ruby, Python a Java. Výhodou je, že můžeme použít klasickou relační databázi nazvanou SQL Azure Database (SAD), což se vyplatí pokud migrujeme nějaký projekt postavený na relační databázi, ale tento typ je hůře škálovatelný. Vedle SAD můžeme použít i Azure Storage, která osahuje nerelační tabulky, tabulky pro velké objemy dat (blobs) a fronty (queues). Azure má speciální staging prostředí, kde můžeme přímo na cloudu vyvíjet aplikaci a nedostane se k ní nikdo, dokud není připravena na spuštení. V tomto prostředí také můžeme spouštět aplikaci v debug režimu, což nám umožňuje například nastavovat breakpointy, pokud potřebujeme aplikaci ladit přímo na cloudu. Azure také umožňuje propojení s Microsoft Live službami a s vývojovým prostředím Microsoft Visual Studio. Stejně jako u Amazonu platíme ihned jakmile nasadíme aplikaci do plného provozu, aby ji mohli vidět i ostatní. Azure je určitě výhodné použít, pokud vyvíjíme aplikace v technologiích od Microsoftu, naše infrastruktura je na těchto tehcnologiích založena anebo pokud používáme jako vývojový nástroj Visual Studio.
 
 \subsection{Google App Engine}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=1.5in]{figures/app-engine-logo.jpg}
+\caption{Google App Engine - logo}
+\label{fig:app-engine-logo}
+\end{center}
+\end{figure}
+
 Oproti dvěma předchozím má App Engine hlavní výhodu v tom, že nemusíme platit ihned jak aplikaci nahrajeme na cloud. Jsou zde nastavené kvóty, které jsou velmi vysoké a je potřeba velká návštěvnost pro jejich přesáhnutí, což je pro začínající aplikaci výhodné obzvláště v České republice. Takže pokud začínáme se startupem, nemusíme se v počátcích obávat velkých investic a pokud bude náš projekt úspěšný a bude obsluhovat velký počet požadavků, tak poté budeme muset platit jen za přesáhnuté limity, které se každých 24~hodin vynulují. Některé limity jsou nastaveny napevno a nejdou zvýšit ani za poplatek, je to kvůli tomu, aby se nemohlo stát, že jedna aplikace zaneprázdní celý cloud, což by mělo za následek zpomalení i ostatních aplikací. Tyto limity jsou naštěstí velmi vysoké, například datastore API má maximálně 141~241~791 volání za den a 784~676 volání za minutu.  zde je přehledná tabulka kvót a omezení. Kvóty se průběžně navyšují, takže tato data jsou  platná pro květen 2011 \ref{tab:quotas}.
 
 \begin{table}[h]
