@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  23 MAY 2011 11:19
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  24 MAY 2011 00:35
 entering extended mode
  %&-line parsing enabled.
 **bakalarka.tex
@@ -467,7 +467,7 @@ LaTeX Info: Redefining \cite on input line 694.
 
 LaTeX Warning: Label `lst:unidirectionalManyToOneGetEntity' multiply defined.
 
-))
+) (./chapters/4_testovani.aux))
 \openout1 = `bakalarka.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 144.
@@ -486,7 +486,8 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 144.
 LaTeX Font Info:    ... okay on input line 144.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 144.
 LaTeX Font Info:    ... okay on input line 144.
- (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+
+(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count107
 \scratchdimen=\dimen113
@@ -552,7 +553,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-<figures/LogoCVUT.pdf, id=260, 93.34875pt x 70.2625pt>
+<figures/LogoCVUT.pdf, id=276, 93.34875pt x 70.2625pt>
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
 <use figures/LogoCVUT.pdf> [3 <./figures/LogoCVUT.pdf>] [4
@@ -600,13 +601,12 @@ ut line 10.
 Kapitola 1.
 [1
 
+] [2
+
 ]
 \openout2 = `chapters/2_teorie.aux'.
 
- (./chapters/2_teorie.tex [2
-
-
-]
+ (./chapters/2_teorie.tex
 Kapitola 2.
 
 Package natbib Warning: Citation `nist-cloud' on page 3 undefined on input line
@@ -619,12 +619,15 @@ Package natbib Warning: Citation `amazon-ec2' on page 3 undefined on input line
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 16.
 (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [3]
-<figures/iaas-paas-saas.png, id=432, 729.72626pt x 387.4475pt>
+) [3
+
+
+]
+<figures/iaas-paas-saas.png, id=468, 729.72626pt x 387.4475pt>
 File: figures/iaas-paas-saas.png Graphic file (type png)
 
 <use figures/iaas-paas-saas.png>
-<figures/horizontal-vertical-scalability.jpeg, id=434, 1027.84pt x 770.88pt>
+<figures/horizontal-vertical-scalability.jpeg, id=470, 1027.84pt x 770.88pt>
 File: figures/horizontal-vertical-scalability.jpeg Graphic file (type jpg)
 
 <use figures/horizontal-vertical-scalability.jpeg>
@@ -641,18 +644,18 @@ Overfull \hbox (4.67326pt too wide) in paragraph at lines 70--70
 []\T1/cmr/bx/n/14.4 Porovnání Ama-zon Web Ser-vices, Win-dows Azure a Google
  []
 
-<figures/aws-logo.png, id=449, 602.25pt x 301.125pt>
+<figures/aws-logo.png, id=485, 602.25pt x 301.125pt>
 File: figures/aws-logo.png Graphic file (type png)
 
 <use figures/aws-logo.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6] <figures/azure-logo.jpg, id=455, 305.3662pt x 172.02296pt>
+[6] <figures/azure-logo.jpg, id=491, 305.3662pt x 172.02296pt>
 File: figures/azure-logo.jpg Graphic file (type jpg)
 
 <use figures/azure-logo.jpg>
-<figures/app-engine-logo.jpg, id=456, 172.645pt x 176.66pt>
+<figures/app-engine-logo.jpg, id=492, 172.645pt x 176.66pt>
 File: figures/app-engine-logo.jpg Graphic file (type jpg)
 
 <use figures/app-engine-logo.jpg>
@@ -725,7 +728,7 @@ Overfull \hbox (5.26723pt too wide) in paragraph at lines 199--200
 Package natbib Warning: Citation `whitehouse-app' on page 14 undefined on input
  line 201.
 
-<figures/townhallgraphic.png, id=513, 1606.0pt x 952.55875pt>
+<figures/townhallgraphic.png, id=549, 1606.0pt x 952.55875pt>
 File: figures/townhallgraphic.png Graphic file (type png)
 
 <use figures/townhallgraphic.png>
@@ -743,14 +746,13 @@ Overfull \hbox (93.61845pt too wide) in paragraph at lines 219--220
 /cmtt/m/n/10.95 http://code.google.com/appengine/casestudies.html 
  []
 
-) [15]
-\openout2 = `chapters/3_implementace.aux'.
-
- (./chapters/3_implementace.tex [16
-
+) [15] [16
 
 
 ]
+\openout2 = `chapters/3_implementace.aux'.
+
+ (./chapters/3_implementace.tex
 Kapitola 3.
 
 Overfull \hbox (2.32823pt too wide) in paragraph at lines 4--5
@@ -764,7 +766,10 @@ Overfull \hbox (13.60088pt too wide) in paragraph at lines 7--8
 o-vatel-ných ap-likací. Ne-jd·leºit¥j²ím
  []
 
-[17] [18] [19]
+[17
+
+
+] [18] [19]
 Overfull \hbox (3.59604pt too wide) in paragraph at lines 28--29
 \T1/cmr/m/n/10.95 na stránkách frame-worku i s funk£ní ukázkou (http://slim3dem
 o.appspot.com/performance/),
@@ -783,7 +788,7 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 LaTeX Warning: Reference `lst:bidirectionalOneToManyGetEntity' on page 20 undef
 ined on input line 48.
 
-[20] [21] <figures/cms-uml.png, id=668, 783.92876pt x 319.1925pt>
+[20] [21] <figures/cms-uml.png, id=704, 783.92876pt x 319.1925pt>
 File: figures/cms-uml.png Graphic file (type png)
 
 <use figures/cms-uml.png> [22 <./figures/cms-uml.png>]
@@ -813,29 +818,102 @@ e-bových stránek
  []
 
 ) [26]
+\openout2 = `chapters/4_testovani.aux'.
+
+ (./chapters/4_testovani.tex
 Kapitola 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[][][]\T1/cmr/m/n/9 Apache Bench je nástroj pro p°íka-zovou °ádku ur£ený k m¥°e
+ní výkonu server· -
+ []
+
 [27
 
 
-] [28
+
 
 ]
+Overfull \hbox (30.33324pt too wide) in paragraph at lines 23--32
+ [][] 
+ []
+
+<figures/select.png, id=795, 602.25pt x 372.39125pt>
+File: figures/select.png Graphic file (type png)
+ <use figures/select.png>
+Overfull \hbox (34.23985pt too wide) in paragraph at lines 36--37
+ [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (30.33324pt too wide) in paragraph at lines 48--57
+ [][] 
+ []
+
+<figures/insert.png, id=796, 602.25pt x 372.39125pt>
+File: figures/insert.png Graphic file (type png)
+ <use figures/insert.png>
+Overfull \hbox (34.23985pt too wide) in paragraph at lines 61--62
+ [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[28]
+Overfull \hbox (30.33324pt too wide) in paragraph at lines 74--83
+ [][] 
+ []
+
+<figures/update.png, id=802, 602.25pt x 372.39125pt>
+File: figures/update.png Graphic file (type png)
+ <use figures/update.png>
+Overfull \hbox (34.23985pt too wide) in paragraph at lines 87--88
+ [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (30.33324pt too wide) in paragraph at lines 101--110
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/delete.png, id=803, 602.25pt x 372.39125pt>
+File: figures/delete.png Graphic file (type png)
+ <use figures/delete.png>
+Overfull \hbox (34.23985pt too wide) in paragraph at lines 114--115
+ [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [29 <./figures/select.png (PNG copy)>] [30 <./figures/insert.png (PNG copy)>]
+[31 <./figures/update.png (PNG copy)>] [32 <./figures/delete.png (PNG copy)>]
 Kapitola 5.
-[29] [30
-
-]
-Kapitola 6.
 No file bakalarka.bbl.
-[31] [32
+[33
+
+
+
+] [34
 
 ]
 P\v {r}\'{\i }loha A.
-[33] [34] [35] [36]
+[35] [36
+
+]
 P\v {r}\'{\i }loha B.
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
-<use figures/LogoCVUT.pdf> [37
-
-] [38] [39] [40] [41] [42]
+<use figures/LogoCVUT.pdf> [37] [38] [39] [40] [41] [42]
 P\v {r}\'{\i }loha C.
 [43
 
@@ -843,22 +921,15 @@ P\v {r}\'{\i }loha C.
 
 ]
 P\v {r}\'{\i }loha D.
-[45] [46
-
-]
-P\v {r}\'{\i }loha E.
-[47] [48
-
-]
-P\v {r}\'{\i }loha F.
-<figures/seznamcd.pdf, id=859, 793.96625pt x 539.01375pt>
+<figures/seznamcd.pdf, id=885, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
 
-<use figures/seznamcd.pdf> [49 <./figures/seznamcd.pdf>] [50]
+<use figures/seznamcd.pdf> [45 <./figures/seznamcd.pdf>] [46]
 
 Package natbib Warning: There were undefined citations.
 
-(./bakalarka.aux (./chapters/2_teorie.aux) (./chapters/3_implementace.aux))
+(./bakalarka.aux (./chapters/2_teorie.aux) (./chapters/3_implementace.aux)
+(./chapters/4_testovani.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -867,10 +938,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8778 strings out of 495061
- 116808 string characters out of 1182622
- 406926 words of memory out of 3000000
- 11487 multiletter control sequences out of 15000+50000
+ 8826 strings out of 495061
+ 117652 string characters out of 1182622
+ 407795 words of memory out of 3000000
+ 11516 multiletter control sequences out of 15000+50000
  21537 words of font info for 47 fonts, out of 3000000 for 9000
  32 hyphenation exceptions out of 8191
  38i,9n,40p,2550b,1843s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -893,9 +964,9 @@ nappen/ec/ecrm1200.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on bakalarka.pdf (66 pages, 1376342 bytes).
+Output written on bakalarka.pdf (62 pages, 1412036 bytes).
 PDF statistics:
- 1905 PDF objects out of 2073 (max. 8388607)
- 309 named destinations out of 1000 (max. 500000)
- 534 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1917 PDF objects out of 2073 (max. 8388607)
+ 318 named destinations out of 1000 (max. 500000)
+ 586 words of extra memory for PDF output out of 10000 (max. 10000000)
 
