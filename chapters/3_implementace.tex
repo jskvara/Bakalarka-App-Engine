@@ -1,7 +1,7 @@
 \chapter{Implementace: Vývoj v App Engine}
 
 \section{Výběr cloudu}
-Pro praktickou ukázku a prověření implementace jsem vybral cloud App Engine od společnosti Google. Nejdůležitějším důvodem pro mne byla možnost nahrát plnohodnotnou aplikaci bez nutnosti vynaložení jakýchkoliv nákladů na hosting. Nastavené kvóty od kterých je nutné platit jsou vysoké (odpovídají několika stovkám tisíců požadavkům za den) a stále se postupně zvyšují. Je tedy možné s tímto cloudem libovolně experimentovat a nahrávat různé testovací aplikace. Mnoho Java vývojářů hledá pro svoje malé aplikace hosting, kde by nemuseli platit, anebo mohli nahrát více aplikací. To je ale problém webového Java světa. Server počítá pouze s jedinou aplikací a je často nutné si pamatovat prostředky a další zdroje v rámci aplikace mezi požadavky. Javovský server tak počítá s tím, že si alokuje většinu dostupné paměti systému. Výhodou je, že nemusíme při každém požadavku vytvářet nové spojení do databáze a k ostatním prostředkům. Naproti tomu u skriptovací jazyků (jako například \verb|PHP| nebo \verb|Python|), se při každém požadavku provede celý kód znovu. Na serveru tak může běžet několik aplikací a zároveň se neovlivňují. V praxi se toho běžně využívá a proto je možné provozovat velké množství takovýchto aplikací na jediném hosting. App Engine nám umožňuje stejný princip pro Javu, běh více aplikací na stejném hardware. Cena za tuto možnost je nutnost uvolnění zdrojů z nepoužívaných aplikací, aby nezabírali místo ostatním. To App Engine sám hlídá a po určité době neaktivity aplikaci odstaví a nahraje aktivní.
+Pro praktickou ukázku a prověření implementace jsem vybral cloud App Engine od společnosti Google. Nejdůležitějším důvodem pro mne byla možnost nahrát plnohodnotnou aplikaci bez nutnosti vynaložení jakýchkoliv nákladů na hosting. Nastavené kvóty od kterých je nutné platit jsou vysoké (odpovídají několika stovkám tisíců požadavkům za den) a stále se postupně zvyšují. Je tedy možné s tímto cloudem libovolně experimentovat a nahrávat různé testovací aplikace. Mnoho Java vývojářů hledá pro svoje malé aplikace hosting, kde by nemuseli platit, anebo mohli nahrát více aplikací. To je ale problém webového Java světa. Server počítá pouze s jedinou aplikací a je často nutné si pamatovat prostředky a další zdroje v rámci aplikace mezi požadavky. Javovský server tak počítá s tím, že si alokuje většinu dostupné paměti systému. Výhodou je, že nemusíme při každém požadavku vytvářet nové spojení do databáze a k ostatním prostředkům. Naproti tomu u skriptovací jazyků (jako například \verb|PHP| nebo \verb|Python|), se při každém požadavku provede celý kód znovu. Na serveru tak může běžet několik aplikací a zároveň se neovlivňují. V praxi se toho běžně využívá a proto je možné provozovat velké množství takovýchto aplikací na jediném hosting. App Engine nám umožňuje stejný princip pro Javu, běh více aplikací na stejném hardware. Cena za tuto možnost je nutnost uvolnění zdrojů z nepoužívaných aplikací, aby nezabíraly místo ostatním. To App Engine sám hlídá a po určité době neaktivity aplikaci odstaví a nahraje aktivní.
 
 \section{Aplikace}
 Cílem této bakalářské práce je ověřit možnosti a omezení škálovatelných aplikací. Nejdůležitějším hlediskem je celková rychlost a odezva aplikace v závislosti na počtu souběžných požadavků. Tedy jak bude aplikace a celý cloud reagovat na zvýšený nápor požadavků, jak se s tím cloud vyrovná a zda bude služba stále použitelná. Také jsem se zaměřil na rychlost čtení a ukládání do Datastore. Pokud je klasická aplikace vystavena vysoké zátěži, je ve většině případů právě databáze úzkým hrdlem (takzvaný \emph{bottleneck}) a přestává stíhat zpracovávat požadavky jako první. 
@@ -11,7 +11,7 @@ Kromě ověření rychlosti a škálovatelnosi bylo také cílem vytvořit rozs�
 Jako nejvhodnější řešení pro vyzkoušení implementace jsem vybral jednoduchý systém pro správu obsahu (CMS - Content Management System). Můžeme si tak vytvořit webovou  stránku s plnou administrací, tedy s možností přidávání, úpravy a mazání stránek. Ke každé stránce můžeme přidat šablonu. Mimo samotných stránek lze přidávat, upravovat a mazat i novinky, jedná se o kratší zprávy, pro které je zbytečné vytvářet samostatnou stránku. Ke každé stránce lze také přiřadit štítek (tag), tato možnost nahrazuje kategorie. Výhodou oproti kategoriím, kde může být jeden článek pouze v jedné kategorii je, že článek může být označen více štítky a zároveň jeden štítek může být přiřazen k více článkům. Z těchto údajů pak můžeme generovat takzvané \emph{tag cloudy} (oblaky štítků)\footnote{http://en.wikipedia.org/wiki/Tag\_cloud}, kde velikost štítku určuje jeho význam, čím více článků štítek označuje, tím je důležitější a výraznější. Z hlediska implementace se jedná o vazbu M:N, která se v NoSQL databázích musí implementovat složitěji než v relačních a bylo potřeba vymyslet vyhovující řešení.
 
 \section{Výběr frameworku: Slim3}
-Než jsem začal aplikaci psát, zjišťoval jsem, které knihovny a frameworky\footnote{Framework je ucelený soubor knihoven a kódu pomáhající vytvořit aplikaci} bych mohl použít na ulehční práce. Kvůli omezením nejsou podporovány všechny knihovny a některé potřebují speciální úpravy anebo nastavení. Další nevýhodou je, že čím je náš kód rozsáhleší, tím déle bude trvat načítání, pokaždé když bude App Engine nahrávat aplikaci do aktivního stavu. Tímto jsem eliminoval známé, ale velké frameworky jako jsou Spring\footnote{Spring Framework - http://www.springsource.org/} a Seam\footnote{Seam Framework - http://seamframework.org/}. Poté jsem hledal mezi menšími, ale žádný nevyhovoval úplně potřebám App Engine. Bohužel je tento cloud relativně mladý a tak pro něj neexistují frameworky, anebo jsou málo známé. Myslel jsem tedy že použiji přímočaré řešení pomocí servletů a naprogramuji aplikaci od základů. Naštěstí jsem ale náhodou narazil na framework Slim3\footnote{Slim3 - http://sites.google.com/site/slim3appengine/} určený přesně pro potřeby App Engine.
+Před započetím práce jsem zjišťoval, které knihovny a frameworky\footnote{Framework je ucelený soubor knihoven a kódu pomáhající vytvořit aplikaci} bych mohl použít na ulehční práce. Kvůli omezením nejsou podporovány všechny knihovny a některé potřebují speciální úpravy anebo nastavení. Další nevýhodou je, že čím je náš kód rozsáhleší, tím déle bude trvat načítání, pokaždé když bude App Engine nahrávat aplikaci do aktivního stavu. Tímto jsem eliminoval známé, ale velké frameworky jako jsou Spring\footnote{Spring Framework - http://www.springsource.org/} a Seam\footnote{Seam Framework - http://seamframework.org/}. Poté jsem hledal mezi menšími, ale žádný nevyhovoval úplně potřebám App Engine. Bohužel je tento cloud relativně mladý a tak pro něj neexistují frameworky, anebo jsou málo známé. Myslel jsem tedy že použiji přímočaré řešení pomocí servletů a naprogramuji aplikaci od základů. Naštěstí jsem ale náhodou narazil na framework Slim3\footnote{Slim3 - http://sites.google.com/site/slim3appengine/} určený přesně pro potřeby App Engine.
 
 Slim3 je MVC\footnote{Model View Controller - http://en.wikipedia.org/wiki/Model-view-controller}
 framework optimalizovaný pro App Engine, přináší rozšíření i jednodušší práci s Datastore API a další vylepšení. Jeho hlavní koncepty jsou: \emph{simple} (jednoduchý) a \emph{less is more} (méně je více), tedy že jednoduchost a srozumitelnost vedou ke správnému designu. Framework se drží Paretova pravidla, tedy že 80\% aplikace, pramení z 20\% práce, takže se snaží co nejvíce zjednodušit oněch 20\% a ve zbytku nechává programátorovi volnost.
@@ -128,15 +128,75 @@ for (EmployeeProject ep : project.getEmployeeProjectRef().getModelList()) {
 }
 \end{lstlisting}
 
+Takto lze realizovat všechny druhy spojení včetně obousměrných variant, o většinu rutinní práce se postará vygenerovaný metamodel entit a umožňuje programátorovi soustředit se jen na správné vzájemné nastavení spojení.
 
-Takto lze realizovat všechny druhy spojení včetně obousměrných variant, o většinu rutinní práce se postará vygenerovaný metamodel entit a umožňuje programátorovi soistředit se jen na správné vzájemné nastavení spojení.
+\section{Model aplikace}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3.5in]{figures/cms-uml.png}
+\caption{Diagram tříd modelu}
+\label{fig:modelUml}
+\end{center}
+\end{figure}
+
+\subsection{Entity a metatřídyentit}
+Framework nám kromě obalení Datastore API z App Engine nedává moc dalších rozšíření pro část modelu návrhového vzoru MVC. Chtěl jsem mít model rozdělený do více samostatných a vyměnitelných vrstev. Model mé aplikace tedy vypadá následovně. Entity z Datastore jsou v Javě reprezentovány doménovým modelem entitních tříd. Každé entitě odpovídá jedna třída s klíčem \verb|Key| a nastavenými třídními proměnnými jako parametry entity v uložišti. Tyto třídy jsou označeny anotacemi (například \verb|@Model|, \verb|@Attribute(primaryKey = true)|), jak bylo vidět na výpisech výše, což slouží ke generování metatříd. 
+
+\subsection{DAO}
+Ke každé entitní třídě je vygenerován jeden metaobjekt. Pro CRUD (Create, Read, Update, Delete) operace s entitou je vyhrazen speciální DAO objekt\footnote{Data Access Objekt - objekt zapouzdřující práci entitních tříd s databází}, každé entitní třídě odpovídá jeden DAO objekt. Máme zde veškerou práci s Datastore, pokud tedy budeme chtít změnit některé chování, máme všechen kód na jednom místě a nemusíme procházet mnoho tříd. 
+
+\subsection{Service}
+S DAO třídami pracují takzvané servisní (Service) třídy. Znovu platí pravidlo, že servisní třídy odpovídají těm entitním. Jedná se vlastně o naše rozhraní do aplikace, protože MVC návrhový vzor počítá s nahraditelností všech čátí, to znamená, že pokud bychom chtěli udělat z této aplikace místo webové desktopovou, stačilo by změnit Controller pro řízení vstupu a View pro zobrazování dat. Model by nepotřeboval žádnou změnu. Chybové stavy jsou do View předávány přes \verb|ServiceException|, která má navíc dvě specializované podtřídy \verb|ConverterException| a \verb|ValidatorException|, aby šlo jednoduše odlišit odkud chyba pochází. 
+
+\subsection{Converter}
+Servisní třída tedy používá třídy \verb|Converter| a \verb|Validator| odpovídaící entitám. Converter jak již název napovídá slouží ke konverzi vstupních marametrů od uživatele. Vše totiž do Controlleru aplikace přichází jako řetězec (\verb|String|) a tak je potřeba všechny položky převést na odpovídající typ a některé i i podle speciálního nastavení, například datum podle určeného formátu na Javovský typ \verb|Date|. Converter se tedy postará o správné vytvoření entitní třídy podle vstupních pamatetrů anebo vyhodí výjimku s popisem chyby. 
+
+\subsection{Validator}
+Validační třída se pak postará o kontrolu entity, například zda textové pole nepřesáhlo maximální délku, anebo zda jsou vyplněna všechna pole, která nesmí být prázdná. S tímto nám také Slim3 pomáha, máme zde již připravené některé běžné validátory (pro maximání délku řetězce, rozsah číselných hodnot anebo například kontrolu pomocí regulárních výrazů\footnote{Regulární výrazy (Regular Expression) - jedná se o speciální řetězec popisující množinu řetězců sloužící k vyhledávání nebo mainupulaci s textem}). Validátory navíc používají vygenerované metatřídy, abychom mohli specifikovat položku, kterou chcme zkontrolovat. Ve validátoru se rozlišují dva stavy, zda je vytvářen nový objek, nebo zda jde jen o úpravu existující entity. To se používá například pokud chceme mít unikátní název URL pro stránku, aby systém věděl, kterou přesně stránku má správně zobrazit. Při vytváření zkontrolujeme, zda již stejná URL neexistuje a při úpravě kontrolujeme, zda byla URL změněna, a poté zda nekoliduje s některou z existujících URL. 
+
+\subsection{DTO}
+Poslední důležitou vrstvou jsou DTO\footnote{Data Trasnfer Object - objekty sloužící pro transport entitních a dalších tříd}, ty slouží pro přenos entitních tříd mezi vrstvami Model a View. Jedná se o opak Converterů, pokud chceme zobrazit entitu uživateli, tak ji obalíme DTO objektem a ten se postará o správné převedení typů. Například datový typ \verb|Date| se podle nastavení převede do správného formátu data pro uživatele. 
+
+\section{Propojení modelu - Google Guice}
+Ke spojení všech těchto vrstev jsem se rozhodnul pro použití Google Guice\footnote{ http://code.google.com/p/google-guice/}. Jedná se o knihovnu pro Dependency Injection (injekce závislostí), kde můžeme pomocí anotace \verb|@Inject| nastavit závislosti třídních proměnných pomocí typu proměnné.
+
+\begin{lstlisting}[caption={Ukázka použití Google Guice za pomocí anotace @Inject},label=lst:guiceInject,belowcaptionskip=0.4cm]
+public class PageService {
+	@Inject
+	private PageDAO pageDAO;
+
+	// ...
+}
+\end{lstlisting}
+
+Výhodou nastavení rozhraní oproti přesnému určení typu třídy, je možnost měnit injektované třídy podle potřeby, například v jednom případě pro produkčí prostředí a jiné nastavení pro testování, kde nastavíme například jen Mock objekty\footnote{Mock objekty jsou simulované objekty, které napodobují reálné objekty používané hlavně při testování}. Pokud existuje v projektu jediná implemetace rozhraní, Guice ji najde a pomocí reflexe ji do proměnné nastaví. Pokud aplikace obsahuje více implementací daného rozhraní, musíme použít konfiguraci, kde nastavíme která implementace se má do proměnné nastavit. Konfigurace vypadá následovně:
+
+\begin{lstlisting}[caption={Příklad konfigurace Google Guice},label=lst:guiceConfiguration,belowcaptionskip=0.4cm]
+public class GuiceModule extends AbstractModule {
+	public void configure() {
+		bind(PageDAO.class).to(PageDAOImpl.class);
+	}
+}
+\end{lstlisting}
+
+Vše se nastavuje v jazyce Java, jen vybereme s jakou třídou má být rozhraní spojeno a takto vzniklou třídu předáme jako parametr při vytváření metodě \verb|createInjector|. Vytváření instancí objektu s nastavenými závislostmi pomocí Guice se provádí následujícím způsobem
+
+\begin{lstlisting}[caption={Získávání sestavených tříd pomocí Google Guice},label=lst:guiceGetClass,belowcaptionskip=0.4cm]
+Injector injector = Guice.createInjector(new BillingModule());
+PageService pageService = injector.getInstance(PageService.class);
+\end{lstlisting}
+
+Výsledkem je instance třídy \verb|PageService| se správně nastavenými všemi závislostmi podle konfigurace. Pokud některý z nastavovaných objektů  také obsahuje závislosti označené pomocí \verb|@Inject| nastaví se také.
+
+Výhoda Google Guice je, že je jeho kód poměrně malý v porovnání s ostatními knihovnami, které obsahují stejnou funkčnost. Guice se stará čistě jen o nastavení závislostí, kdežto například Spring framework a podobné, se starají i o řešení dalších záležitostí. Proto je Guice vhodné použít na App Engine, nebude tak zdržovat načítání naší aplikace a závislost komponent v naší aplikaci bude nastavena na jednom místě.
 
 \section{Slim3 Controller}
 Slim3 nám kromě ulehčení práce s Datastore pomáhá i v Controller vrstvě návrhového vzoru MVC. Tato část se stará o řízení požadavků od uživatele, to znamená, že pokud navštíví určitou URL adresu, tak framework přesměruje požadavek do správného controlleru. Překlad funguje následujícím způsobem, pokud navštívíme základní URL \verb|/|, použije se třída \verb|IndexController| ze základního javovského balíčku (package) aplikace. Pokud navštívíme konkrétní stánku, například \verb|/page|, použije se třída \verb|PageController| ze základního balíčku. Dále pokud navštívíme podstránku \verb|/page/subpage| použije se třídat \verb|SubpageController|  (tedy první písmeno je velké, jak je u tříd v Javě zvykem, a přidá se \verb|Controller|) z balíku \verb|page| a tak dále, můžeme do sebe vnořovat libovolný počet balíků a vždy když bude URL končit \verb|/| použije se \verb|IndexController| aktuálního balíku. 
 
 Dalěím vylepšením je možnost konvertovat parametry URL na GET\footnote{GET je parametr HTTP protokolu, kde se proměnné přenášejí v URL, například: url?klic=hodnota\&klic2=hodnota2} parametry zpracovatelné pomocí \verb|request.getParameter|. Vše se konfiguruje ve třídě \verb|AppRouter| následujícím způsobem:
 
-\begin{lstlisting}[caption={Caption},label=lst:entity,belowcaptionskip=0.4cm]
+\begin{lstlisting}[caption={Konfigurace nastaveníURL},label=lst:urlConfiguration,belowcaptionskip=0.4cm]
 public class AppRouter extends RouterImpl {
 	public AppRouter() {
 		addRouting("/edit/{key}/{version}", 
@@ -146,3 +206,10 @@ public class AppRouter extends RouterImpl {
 \end{lstlisting}
 
 URL \verb|/edit/xxx/1| se převede na \verb|/edit?key=xxx&version=1|, použije se tedy \verb|EditController| a v parametrech objektu \verb|Request| bude: \verb|key=xxx| a \verb|version=1|. \verb|EditController| je pak obyčejná třída dědící od třídy \verb|Controller|, kde přepíšeme metodu \verb|runBare()| s naší požadovanou funkčností. Máme zde dostupné všechny objekty jako máme k dispozici v servletu\footnote{Servlet je komponenta napsaná v jazyce Java, určená pro spouštění na webovém serveru}, jsou zde tedy: \verb|Request|, \verb|Response| i \verb|ServletContext|.
+
+U této vrstvy bylo důležité zajistit, aby webové uživatelské rozhraní správně zpracovávalo vstup od uživatele a také, aby aplikace správně informovala uživatele o nastalých akcích, jako jsou vložení stránky nebo chyba při validaci vstupu. Důležitým požadavkem bylo, aby byl uživatel informován i při přesměrování na jinou stránku (například po úspěšné akci) a aby byla zpráva zobrazena pouze jednou. Toto jsem vyřešil předáváním zpráv pomocí Session\footnote{Session umožňují identifikovat a rozeznat jednotlivé klienty při přechodu a přesměrování webových stránek}, pokud se má zobrazit po přesměrování. Aby se zpráva zobrazila pouze jednou, používá se trik, kdy se všechny oznamující zprávy předají do parametru obejtku \verb|Request|, kam se ukládají informační zprávy, pokud nepotřebujeme uživatele přesměrovat. Vše je implementováno pomocí \verb|FlashScopeFiltru|\footnote{Filtry jsou standardni součástí webové Javy, kdy můžeme transformovat jednotlivé příchozí požadavky a odchozí odpovědi}, který je zařazen před \verb|FrontController|, kde se přesun zpráv do objektu \verb|Request| provede.
+
+Pomocí připravených controllerů je vytvořena administrační část, kde jsou všechny URL adresy pevně dané a nebudou se měnit. Pro veřejnou část stránek, které jsou dynamicky generované uživateli aplikace, se používá třída \verb|IndexController|. Ta podle URL adresy vybere stránku z Datastore a získá všechny související entity, jako šablonu, štítky a další. Ze všech těchto dat nakonec naplní šablonu, sestaví stránku a tu odešle klientovi. Pokud se nepodaří stránku najít, tak přesměruje řízení na \verb|NotFoundController|, ten zobrazí zprávu o tom, že stránka nebyla nalezena a odešle chybový HTTP kód 404\footnote{HTTP stavový kód 404 podle dohody oznamuje klientovi, že stránka kterou požaduje, nebyla na serveru nalezena, to může být užitečné například pro vyhledávače, aby stránku nezařazovaly do svých výsledků}.
+
+\section{View vrstva}
+Poslední vrstva je View (neboli prezentační), která slouží k zobrazování webvého obsahu uživatelům. Zde Slim3 používá klasické JSP\footnote{Java Server Pages - technologie umožňující generování webových stránek http://en.wikipedia.org/wiki/JavaServer\_Pages}, kde nám přidává několik značek (\emph{tagů}) pro usnadnění vykreslování formulářů a údajů z Datastore. JSP bylo vybráno pravděpodobně z toho důvodu, že je velmi rozšířené a je standardní součástí App Engine. JSP je vcelku jednoduché, do HTML stránky přidáváme speciální tagy, které se zpracují. Můžeme vytvážet vlastní knihovny tagů, které pak v JSP můžeme použí.

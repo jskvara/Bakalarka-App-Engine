@@ -117,29 +117,41 @@ tvaru \verb|jmeno-aplikace.appspot.com| a pokud potřebujeme můžeme nastavit i
 \section{API služby}
 Abychom mohli propojit naši aplikaci s ostatními máme na App Engine velké množství API sloužících k různým účelům. Pojďme si nyní projít jaké možnosti máme. Některé z nich asi vůbec nevyužijeme, ale některé jsou velmi užitečné a důležité. Google pro vývoj aplikací nabízí pro všechny podporované jazyky SDK\footnote{Software Development Kit - sada vývojářských nástrojů určených pro speciální aplikci nebo platformu}, aktuální je nyní verze 1.5.0.1 z 16. května 2011.
 
+\subsection{Datastore}
 Asi jednou z nejpoužívanějších služeb, pokud pomineme Datastore, je Memcache. Jedná se o možnost, jak zrychlit častý přístup do databáze. Jedná se o key-value cache, která je přibližně desetkrát až stokrát rychejší, než přístup k Datastore. Nehodí se ale pro vše, protože data z ní po vypršení zmizí. Místo klasického cachování na disk, tedy máme možnost ukládat data do paměti. Implementace je podle standardu JSR-107, takže bude kompatibilní s dalšími knihovnami.
 
+\subsection{Mail}
 Mezi další užitečné služby patří Mail, posílání mailů funguje klasicky pomocí tříd javax.mail. Můžeme přidávat i přílohy. Některé soubory jsou z bezpečnostních důvodů zakázány, ale všechny běžně používané jsou povoleny. Přijímání e-mailů se ošetřuje pomocí servletu\footnote{Servlet je komponenta napsaná v jazyce Java, určená pro spouštění na webovém serveru}. Ve \verb|web.xml| se nastaví servlet pro url \verb|/_ah/mail/jmeno-emailu| a e-mail má tvar: \verb|jmeno-emailu@id-aplikace.appspot.com| a to bohužel i v případě, že máme nastavenou naši vlastní doménu. Příchozí e-mail se chová jako HTTP požadavek, takže v servletu se musíme zpracování postarat sami, podle toho co potřebujeme. 
 
+\subsection{XMPP}
 Podobně jako Mail funguje i služba pro práci s XMPP protokolem\footnote{Extensible Messaging and Presence Protocol (http://xmpp.org/about-xmpp/technology-overview/)}. Jedná se o otevřený standardizovaný protokol Jabberu postavený na XML. Princip na App Engine je podobný jako s e-mailem, identifikátor příjemce je JID, který se dá získat  z e-mailu. Podporovány jsou i další funkce, jako posílání pozvánek, nastavování statusů a další. Přijímáme pomocí servletu nastaveného na adresu: \verb|/_ah/xmpp/message/chat/|.
 
+\subsection{Task Queues}
 Kvůli absenci JMS\footnote{Java Message Service (http://en.wikipedia.org/wiki/Java\_Message\_Service)} máme na App Engine možnost použít Task Queues. Jedná se o frontu úloh, které by mohly zpomalit náš systém, takže je výhodnější je zpracovat později. Fronta funguje následovně: pomocí Task Queues API přidáme do fronty URL naší aplikace, můžeme jí předávat parametry stejně jako u klasické URL\footnote{Uniform Resource Locator (http://en.wikipedia.org/wiki/Uniform\_Resource\_Locator)}. Provedení úlohy z fronty je záležitostí servletu, na který je URL nastavena pomocí \verb|web.xml|. Vykonání úlohy je omezeno deseti minutami, toto by měl být dostatečný limit pro běžné úlohy. Pokud servlet vrátí HTTP status mimo rozmezí 200 - 299, což znamená chybu, tak se úloha zavolá znovu aby proběhla v pořádku. Pokud potřebujeme informovat aplikaci o dokončení úlohy, musíme to řešit pomocí Datastore.
 
+\subsection{URL Fetch}
 Pokud potřebujeme naše stránky integrovat s nějakou webovou službou, anebo používat veřejná REST API, použijeme URL Fetch. Jedná se o klasické java.net API, můžeme použít HTTP i HTTPS, většinu běžných portů a samozřejmě i všechny HTTP metody: GET, POST, PUT, HEAD i DELETE pro správné fungování REST rozhraní. K požadavku můžeme nastavovat i vlastní HTTP hlavičky.
 
+\subsection{Blobstore}
 Na některá data, jako například obrázky, nebo velké soubory se Datastore nehodí, maximální velikost entity je 1MB. Právě kvůli tomuto účelu můžeme na App Engine použít Blobstore, jedná se o uložiště pro velké soubory do velikosti až 2GB. Blobstore je plně oddělen od Datastore. Nahrávání je velice jednoduché, stačí použít forumář s prvkem \verb|<input type=”file” />| a atribut action formuláře nastavíme pomocí \verb|<%= blobstoreService.createUploadUrl("/upload")%>|.
 Blobstore už se sám postará aby se soubor nahrál na správné místo. Zobrazovat soubory můžeme pomocí \verb|blobstoreService.serve(blob-key)|, potřebujeme k tomu klíč souboru. Tato služba umí vybrat všechny uložené soubory. Práce je velmi podobná jako s Datastore, akorát s tím rozdílem, že zde pracujeme s velkými soubory. Jedná se o užitečnou službu, protože dříve než existovala tato služba, se ukládání řešilo rozdělením do mnoha samostatných entit o velikosti 1MB a při zobrazení jsme je museli zase nazpět složit. Toto všechno se dělo na aplikační úrovni, takže jsme museli ošetřit všechny chybové případy a bylo vše velmi zdlouhavé a nepohodlné. Takto se o ukládání souborů stará AppEngine sám a nám stačí jednoduché API.
 
+\subsection{Images}
 S předchozím Blobstore souvisí i další služba: Images. Jedná se o možnost úpravu obrázků přímo na serveru. Obrázky se načítají z Blobstore anebo můžeme službě předat přímo pole \verb|byte[]|. Můžeme takto aplikovat jednoduché transformace jako je změna velikosti, otočení, oříznutí, skládní obrázků a také magická funkce "I’m feeling lucky", která změní nastavení tmavých a světlých barev a k tomu také zvýší kontrast obrázku, výsledkem jsou pak více barevnější obrázky. Upravené obrázky můžeme přímo posílat uživetelům anebo uložit do Blobstore, pokud se budou zobrazovat častěji. Služba obsahuje základní transformace, ale na vytvoření náhledů nebo menší úpravy jako zvětšení a zmenšení obrázku, které jsou pravěpodobně na webových stránkách nejpoužívanější, se Image API hodí výborně.
 
+\subsection{Users}
 Pokud potřebujeme u naší aplikace vytvořit sekci jen pro přihlášené uživatele, nabízí nám k tomu App Engine možnost použít Users API a interní přihlašovací mechanismus Googlu využívaný u všech aplikací této společnosti, například tedy \verb|gmail.com|, \verb|youtube.com| a dalších. Použití je jednoduché, pokud uživatel není přihlášený, tak ho přesměrujeme na vygenerovanou přihlašovací stránku. Ta je stejná pro všechny služby Googlu, zadáme e-mail a heslo. Poté můžeme nastavit, které všechny údaje o sobě chceme aplikaci, do které se právě přihlašujeme, poskytnout. Nakonec nás stránka přesměruje zpět na naši aplikaci. Nyní můžeme o uživateli zjistit základní informace: přihlašovací e-mail a jednoznačný identifikátor ID. Odhlašování funguje stejně jako přihlašování, přesměrujeme uživatele na odhlašovací stránku Google, která nás následně po odhlášení znovu přesměruje, tentokrát na naši aplikaci.
 
+\subsection{OAuth}
 Pokud chceme dát možnost přihlašování i pro uživatele, kteří nevlastní účet u Google, můžeme použít OAuth protokol. Ten není vázaný na konkrétní společnost, takže si můžeme vybrat poskytovatele. Jedná se o možnost přihlášení uživatelským jménem a heslem jiné aplikace a v naší aplikaci jen kontrolujeme token. Výhoda tohoto způsobu je, že uživateli stačí jeden účet pro více aplikací, nemusí si tak pamatovat hesla pro každou stránku na které má účet. S touto službou se pracuje velmi podobně jako s předchozím API.
 
+\subsection{Capabilities}
 App Engine obsahuje Capabilities API pomocí něhož můžeme zjistit, zda daná služba běží anebo ne. Můžeme tak ošetřit případ, kdy zrovna probíhá údržba anebo výpadek a služby jsou nedostupné. Jsou zde dostupné informace o těchto službách: Blobstore, čtení z Datastore, zápis do Datastore, Images, Mail, MemCache, TaskQueue, Url Fetch a XMPP.
 
+\subsection{Channel}
 Pro lepší spolupráci s klientskou stranou máme k dispozici Channel API. To se stará o trvalé spojení JavaScriptu na stránce se servery Googlu, aniž by se musel klient stále dotazovat serveru. Toto se hodí, pokud chceme uživatele informovat o nastalé akci, toto se hodí například na hry pro více hráčů a internetové chaty.
 
+\subsection{Multitenancy}
 Posledním rozšířením je Multitenancy API, to nám dává možnost používat jmenné prostory pro naše data, můžeme je aplikovat na: Datastore, Memcache, Task Queue a Blobstore. Můžeme tak provozovat více oddělených stránek z jedné aplikace a pro každou stránku budeme mít speciální jmenný prostor. Data se tak nebudou překrývat a budou správně oddělena.
 
 \section{Omezení cloudu}
