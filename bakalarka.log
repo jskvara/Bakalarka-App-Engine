@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  20 MAY 2011 23:46
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  23 MAY 2011 02:34
 entering extended mode
  %&-line parsing enabled.
 **bakalarka.tex
@@ -552,7 +552,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-<figures/LogoCVUT.pdf, id=172, 93.34875pt x 70.2625pt>
+<figures/LogoCVUT.pdf, id=176, 93.34875pt x 70.2625pt>
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
 <use figures/LogoCVUT.pdf> [3 <./figures/LogoCVUT.pdf>] [4
@@ -580,7 +580,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [12] (./bakalarka.lof
 
 Package natbib Warning: Citation `whitehouse-app' on page xiii undefined on inp
-ut line 5.
+ut line 7.
 
 )
 \tf@lof=\write5
@@ -614,99 +614,133 @@ Package natbib Warning: Citation `nist-cloud' on page 3 undefined on input line
 
 
 Package natbib Warning: Citation `amazon-ec2' on page 3 undefined on input line
- 14.
+ 12.
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 18.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 16.
 (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [3]
+<figures/iaas-paas-saas.png, id=319, 729.72626pt x 387.4475pt>
+File: figures/iaas-paas-saas.png Graphic file (type png)
+
+<use figures/iaas-paas-saas.png>
+<figures/horizontal-vertical-scalability.jpeg, id=321, 1027.84pt x 770.88pt>
+File: figures/horizontal-vertical-scalability.jpeg Graphic file (type jpg)
+
+<use figures/horizontal-vertical-scalability.jpeg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 28.
+(Font)              <9> on input line 42.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 28.
- [4]
-Overfull \hbox (4.67326pt too wide) in paragraph at lines 56--56
+(Font)              <5> on input line 42.
+[4 <./figures/iaas-paas-saas.png>] [5 <./figures/horizontal-vertical-scalabilit
+y.jpeg>]
+Overfull \hbox (4.67326pt too wide) in paragraph at lines 70--70
 []\T1/cmr/bx/n/14.4 Porovnání Ama-zon Web Ser-vices, Win-dows Azure a Google
+ []
+
+[6]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (83.2213pt too wide) in paragraph at lines 114--116
+[]\T1/cmr/m/n/10.95 Standardn¥ se ap-likace nahraje na adresu jako doména t°etí
+ho °ádu ve tvaru []\T1/cmtt/m/n/10.95 jmeno-aplikace.appspot.com
+ []
+
+
+Overfull \hbox (41.37753pt too wide) in paragraph at lines 114--116
+\T1/cmr/m/n/10.95 t°íd je moºné na-jít na adrese []\T1/cmtt/m/n/10.95 http://co
+de.google.com/appengine/docs/java/jrewhitelist.html\T1/cmr/m/n/10.95 .
+ []
+
+
+Overfull \hbox (451.70073pt too wide) in paragraph at lines 114--116
+\T1/cmr/m/n/10.95 zda jsou kom-pat-i-bilní a p°í-padné nas-tavení pro App En-gi
+ne je dos-tupný na adrese []\T1/cmtt/m/n/10.95 http://groups.google.com/group/g
+oogle-appengine-java/web/will-it-play-in-app-engine?pli=1\T1/cmr/m/n/10.95 .
  []
 
 
 Overfull \hbox (32.72888pt too wide) has occurred while \output is active
 \T1/cmr/m/sl/10.95 2.5.  POROVNÁNÍ AMAZON WEB SERVICES, WINDOWS AZURE A GOOGLE 
-APP ENGINE \T1/cmr/m/n/10.95 5
+APP ENGINE \T1/cmr/m/n/10.95 7
  []
 
-[5]
-Overfull \hbox (391.45105pt too wide) in paragraph at lines 66--70
-\T1/cmr/m/n/10.95 pat-i-bilní a p°í-padné nas-tavení pro App En-gine je dos-tup
-ný na adrese []\T1/cmtt/m/n/10.95 http://groups.google.com/group/google-appengi
-ne-java/web/will-it-play-in-app-engine?pli=1\T1/cmr/m/n/10.95 .
- []
+[7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[6]
-Overfull \hbox (10.33691pt too wide) in paragraph at lines 76--77
+ [8]
+Overfull \hbox (10.33691pt too wide) in paragraph at lines 122--123
 []\T1/cmr/m/n/10.95 Mezi dal²í uºite£né sluºby pat°í Mail, posílání mail· fun-g
 uje kla-sicky po-mocí t°íd javax.mail.
  []
 
 
-Overfull \hbox (133.3192pt too wide) in paragraph at lines 76--77
+Overfull \hbox (133.3192pt too wide) in paragraph at lines 122--123
 []\T1/cmtt/m/n/10.95 web.xml \T1/cmr/m/n/10.95 se nas-taví servlet pro url []\T
 1/cmtt/m/n/10.95 /_ah/mail/jmeno-emailu \T1/cmr/m/n/10.95 a e-mail má tvar: []\
 T1/cmtt/m/n/10.95 jmeno-emailu@id-aplikace.appspot.com
  []
 
-[7]
-Overfull \hbox (25.73755pt too wide) in paragraph at lines 84--86
+
+Overfull \hbox (25.73755pt too wide) in paragraph at lines 130--132
 \T1/cmr/m/n/10.95 Data-s-tore. Nahrávání je velice jednoduché, sta£í pouºít fo-
 rumá° s prvkem []\T1/cmtt/m/n/10.95 <input type=^^Qfile^^Q />
  []
 
 
-Overfull \hbox (54.74605pt too wide) in paragraph at lines 84--86
+Overfull \hbox (54.74605pt too wide) in paragraph at lines 130--132
 \T1/cmr/m/n/10.95 a atribut ac-tion for-mulá°e nas-tavíme po-mocí []\T1/cmtt/m/
 n/10.95 <%= blobstoreService.createUploadUrl("/upload")%>\T1/cmr/m/n/10.95 .
  []
 
-[8] [9]
-Overfull \hbox (1.78679pt too wide) in paragraph at lines 106--107
+[9] [10]
+Overfull \hbox (1.78679pt too wide) in paragraph at lines 151--152
 []\T1/cmr/m/n/10.95 Mezi dal²í omezení pat°í ºádná anebo omezená moºnost vyh-le
 dávání nad sloupci databáze.
  []
 
-[10]
 
-Package natbib Warning: Citation `royal-wedding' on page 11 undefined on input 
-line 115.
+Underfull \vbox (badness 1701) has occurred while \output is active []
+
+ [11]
+
+Package natbib Warning: Citation `royal-wedding' on page 12 undefined on input 
+line 160.
 
 
-Overfull \hbox (5.26723pt too wide) in paragraph at lines 115--116
+Overfull \hbox (5.26723pt too wide) in paragraph at lines 160--161
 \T1/cmr/m/n/10.95 stránka []\T1/cmtt/m/n/10.95 www.officialroyalwedding2011.org
 \T1/cmr/m/n/10.95 , za-loºená k p°íleºi-tosti svatby an-glick-ého prince
  []
 
 
-Package natbib Warning: Citation `whitehouse-app' on page 11 undefined on input
- line 117.
+Package natbib Warning: Citation `whitehouse-app' on page 12 undefined on input
+ line 162.
 
-<figures/townhallgraphic.png, id=364, 1606.0pt x 952.55875pt>
+[12] <figures/townhallgraphic.png, id=393, 1606.0pt x 952.55875pt>
 File: figures/townhallgraphic.png Graphic file (type png)
 
 <use figures/townhallgraphic.png>
 
-Package natbib Warning: Citation `whitehouse-app' on page 11 undefined on input
- line 122.
+Package natbib Warning: Citation `whitehouse-app' on page 13 undefined on input
+ line 167.
 
 
-Package natbib Warning: Citation `whitehouse-app' on page 11 undefined on input
- line 122.
+Package natbib Warning: Citation `whitehouse-app' on page 13 undefined on input
+ line 167.
 
-[11 <./figures/townhallgraphic.png>])
-Overfull \hbox (93.61845pt too wide) in paragraph at lines 135--301
+
+Overfull \hbox (93.61845pt too wide) in paragraph at lines 180--181
 []\T1/cmr/m/n/10.95 Dal²í za-jí-mavé a úsp¥²né pro-jekty jsou na stránce: []\T1
 /cmtt/m/n/10.95 http://code.google.com/appengine/casestudies.html 
  []
 
-[12]
+) [13 <./figures/townhallgraphic.png>] [14]
 \openout2 = `chapters/3_implementace.aux'.
 
  (./chapters/3_implementace.tex
@@ -723,11 +757,11 @@ Overfull \hbox (13.60088pt too wide) in paragraph at lines 7--8
 o-vatel-ných ap-likací. Ne-jd·leºit¥j²ím
  []
 
-[13
+[15
 
 
 
-] [14] [15]
+] [16] [17]
 Overfull \hbox (3.59604pt too wide) in paragraph at lines 28--29
 \T1/cmr/m/n/10.95 na stránkách frame-worku i s funk£ní ukázkou (http://slim3dem
 o.appspot.com/performance/),
@@ -743,65 +777,65 @@ f<Entity1, Entity2>
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 34.
 
-LaTeX Warning: Reference `lst:bidirectionalOneToManyGetEntity' on page 16 undef
+LaTeX Warning: Reference `lst:bidirectionalOneToManyGetEntity' on page 18 undef
 ined on input line 48.
 
-[16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
+[18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 [][][]\T1/cmr/m/n/9 GET je parametr HTTP pro-tokolu, kde se prom¥nné p°ená²ejí 
 v URL, nap°ík-lad:
  []
 
 )
-Overfull \hbox (21.68277pt too wide) in paragraph at lines 150--306
+Overfull \hbox (21.68277pt too wide) in paragraph at lines 148--306
 []\T1/cmr/m/n/10.95 URL []\T1/cmtt/m/n/10.95 /edit/xxx/1 \T1/cmr/m/n/10.95 se p
 °evede na []\T1/cmtt/m/n/10.95 /edit?key=xxx&version=1\T1/cmr/m/n/10.95 , pouºi
 je se tedy []\T1/cmtt/m/n/10.95 EditController
  []
 
-[18] [19] [20
+[20] [21] [22
 
 
 ]
 Kapitola 4.
-[21] [22
+[23] [24
 
 ]
 Kapitola 5.
-[23] [24
+[25] [26
 
 ]
 Kapitola 6.
 No file bakalarka.bbl.
-[25] [26
+[27] [28
 
 ]
 P\v {r}\'{\i }loha A.
-[27] [28] [29] [30]
+[29] [30] [31] [32]
 P\v {r}\'{\i }loha B.
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
-<use figures/LogoCVUT.pdf> [31
+<use figures/LogoCVUT.pdf> [33
 
-] [32] [33] [34] [35] [36]
+] [34] [35] [36] [37] [38]
 P\v {r}\'{\i }loha C.
-[37
+[39
 
-] [38
+] [40
 
 ]
 P\v {r}\'{\i }loha D.
-[39] [40
-
-]
-P\v {r}\'{\i }loha E.
 [41] [42
 
 ]
+P\v {r}\'{\i }loha E.
+[43] [44
+
+]
 P\v {r}\'{\i }loha F.
-<figures/seznamcd.pdf, id=657, 793.96625pt x 539.01375pt>
+<figures/seznamcd.pdf, id=690, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
 
-<use figures/seznamcd.pdf> [43 <./figures/seznamcd.pdf>] [44]
+<use figures/seznamcd.pdf> [45 <./figures/seznamcd.pdf>] [46]
 
 Package natbib Warning: There were undefined citations.
 
@@ -814,13 +848,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8632 strings out of 495061
- 114259 string characters out of 1182622
- 406271 words of memory out of 3000000
- 11414 multiletter control sequences out of 15000+50000
+ 8658 strings out of 495061
+ 114844 string characters out of 1182622
+ 406467 words of memory out of 3000000
+ 11426 multiletter control sequences out of 15000+50000
  21537 words of font info for 47 fonts, out of 3000000 for 9000
  32 hyphenation exceptions out of 8191
- 38i,9n,40p,2462b,1843s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,9n,40p,2550b,1843s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home
 /skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecit0900.600pk> </home/skvaros/
 .texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home/skvaros/.texmf-va
@@ -840,9 +874,9 @@ nappen/ec/ecrm1200.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on bakalarka.pdf (60 pages, 973507 bytes).
+Output written on bakalarka.pdf (62 pages, 1275339 bytes).
 PDF statistics:
- 1665 PDF objects out of 1728 (max. 8388607)
- 244 named destinations out of 1000 (max. 500000)
- 328 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1705 PDF objects out of 1728 (max. 8388607)
+ 255 named destinations out of 1000 (max. 500000)
+ 346 words of extra memory for PDF output out of 10000 (max. 10000000)
 
