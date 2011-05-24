@@ -1,28 +1,28 @@
 \chapter{Testování: Porovnání rychlosti práce s Datastore}
 
 \section{Hlediska a způsob testování}
-Pro otestování cloudu jsem vybral dvě důležitá hlediska, prvním byla rychlost Datastore API a provádění operací: čtení, vkládání, úprava a mazání záznamů v závislosti na použitém přístupu. Testovány byly tyto možnosti: JPA, JDO a Datastore API. Druhým typem testů bylo zatížení celé aplikace a reakce cloudu. Vytvořil jsem velké množství stránek a poté jsem pomocí nástroje Apache Bench \footnote{Apache Bench je nástroj pro příkazovou řádku určený k měření výkonu serverů -http://httpd.apache.org/docs/2.2/programs/ab.html}  posílal na App Engine požadavky. Toto testování by mělo reflektovat situaci, kdy se o dané stránce dozví v krátkém čase velký počet návštěvníků, například vyjde článek nebo reportáž, spuštění velké kampaně, anebo například použití při propagaci jednorázové události jako jsou volby.
+Pro otestování cloudu jsem vybral dvě důležitá hlediska, prvním byla rychlost Datastore API a provádění operací: čtení, vkládání, úprava a mazání záznamů v závislosti na použitém přístupu. Testovány byly tyto možnosti: JPA, JDO a Datastore API. Druhým typem testů bylo zatížení celé aplikace a reakce cloudu. Vytvořil jsem velké množství stránek a poté jsem pomocí nástroje Apache Bench\footnote{Apache Bench je nástroj pro příkazovou řádku určený k měření výkonu serverů -http://httpd.apache.org/docs/2.2/programs/ab.html}  posílal na App Engine požadavky. Toto testování by mělo reflektovat situaci, kdy se o dané stránce dozví v krátkém čase velký počet návštěvníků, například vyjde článek nebo reportáž, spuštění velké kampaně, anebo například použití při propagaci jednorázové události jako jsou volby.
 
 Všechny testy probíhaly přímo na App Engine. Sice existuje server pro lokální vývoj, ale není zcela stejný jako cloud, jedná se jen o webový server Jetty obohacený o API služeb cloudu. Důležitým důvodem také je, že aplikace běží spolu s dalšími stránkami a navzájem se tedy ovlivňují. Cílem test bylo simulovat co nejvíce reálné prostředí, abychom mohli odhadnout chování aplikace.  
 
-Pokud je aplikace nějáký čas neaktivní, tak se odnahraje aby systém šetřil prostředky pro jiné aplikace. Toto nahrávání zabírá nezanedbatelný čas a mohlo by ovlivnit výsledky testů. Před každým testem byla tedy aplikace navštívena, aby bylo zajištěno, že bude připravena a nebude potřeba ji znovu nahrávat.
+Pokud je aplikace určitý čas neaktivní, tak se odnahraje aby systém šetřil prostředky pro jiné aplikace. Toto nahrávání zabírá nezanedbatelný čas a mohlo by ovlivnit výsledky testů. Před každým testem byla tedy aplikace navštívena, aby bylo zajištěno, že bude připravena a nebude potřeba ji znovu nahrávat.
 
 \section{Testování Datastore}
-Pro testování samotného uložiště jsem napsal jednoduchou aplikaci s názvem \emph{TodoList}. Tato aplikace slouží k jednoduché evidenci úkolů, ty můžeme přidávat, upravovat a mazat. Model aplikace obsahuje jednu entitu \verb|TodoEntity| a Datastore bylo naplněno několika tisíci záznamy. Pro každou z testovacích možností, tedy JPA, JDO a Datastore API, jsem vytvořil entitu s odpovídajícími anotacemi a DAO třídu \verb|TodoDAO| pro práci s Datastore. Zbytek aplikace jsem ponechal vždy stejný a při testech jsem měnil jen tuto vrstvu. Při testování byl měřen jen čistý čas operace, aby nebyly výsledky zkresleny síťovým zpožděním a dalšími faktory. Zdrojové kódy všech aplikací i s ukázkami jsou volně k dispozici\footnote{http://code.google.com/p/ae-cms/wiki/Aplikace}
+Pro testování samotného uložiště jsem napsal jednoduchou aplikaci s názvem \emph{TodoList}. Tato aplikace slouží k jednoduché evidenci úkolů, ty můžeme přidávat, upravovat a mazat. Model aplikace obsahuje jednu entitu \verb|TodoEntity| a Datastore bylo naplněné několika tisíci záznamy. Pro každou z testovacích možností, tedy JPA, JDO a Datastore API, jsem vytvořil entitu s odpovídajícími anotacemi a DAO třídu \verb|TodoDAO| pro práci s Datastore. Zbytek aplikace jsem ponechal vždy stejný a při testech jsem měnil jen tuto vrstvu. Při testování byl měřen jen čistý čas operace, aby nebyly výsledky zkresleny síťovým zpožděním a dalšími faktory. Zdrojové kódy všech aplikací i s ukázkami jsou volně k dispozici\footnote{http://code.google.com/p/ae-cms/wiki/Aplikace}
 
 Datastore API je optimalizováno přesně pro uložiště BigTable, používané na App Engine. Jedná se o nejpřímočařejší způsob a tak bylo očekáváno, že i tento způsob práce vyjde z testů nelépe. JPA a JDO používají anotace pro zjednodušení celé práce, ale vše je vykoupeno nutností tato data zpracovávat a převádět. To samozdřejmě celou práci zpomaluje a dá se očekávat, že tyto přístupy vyjdou z testu rychlosti práce podobně, ale pomaleji než Datastore API.
 
-První kolo testování probíhalo v odpoledních hodinách a kvůli vlivu ostatních aplikací byly některé výsledky výrazně odlišné, čož celé porovnání zkreslovalo. Proto byly testy provedeny znovu kolem půlnoci našeho času, kde k takto výrazným odchylkám nedocházelo, ale přesto byl vliv ostatních aplikací někdy znatelný. App Engine poskytuje statisky využití svých služeb s grafy a dostupností přehledně zobrazené po dnech, vše je na  adrese: \verb|http://code.google.com/status/appengine/|.
+První kolo testování probíhalo v odpoledních hodinách a kvůli vlivu ostatních aplikací byly některé výsledky výrazně odlišné, což celé porovnání zkreslovalo. Proto byly testy provedeny znovu kolem půlnoci našeho času, kde k takto výrazným odchylkám nedocházelo. Google má několik datacenter a vybírá, na které a na kolik z nich bude aplikace nahrána. Před dvěma lety měl App Engine datacentra dvě , jedno na východním a druhé na západním pobřeží USA, nyní je velice pravděpodobné, že má datacenter více, ale přesný počet a polohu Google nezveřenil. Vliv ostatních aplikací byl u některých testů znatelný i v noci. App Engine poskytuje statisky využití svých služeb s grafy a dostupností přehledně zobrazené po dnech, vše je na  adrese: \verb|http://code.google.com/status/appengine/|.
 
 \section{Test výběru}
-Prvním testem bylo vybrání 1000 entit z Datastore pomocí všech způsobů. Pro vybírání záznamů z uložiště je jasným favortiem Datastore API, toto rozhraní je pro výběr optimalizován, jelikož výběr bývá u většiny aplikací několikanásobně častější než ostatní operace. Na druhém místě se umístil přístup pomocí JPA a o něco pomalejší je JDO.
+Prvním testem bylo vybrání 1000 entit z Datastore pomocí všech způsobů. Výsledky jsou vidět v tabulce \ref{tab:select} a v grafu \ref{fig:select} Pro vybírání záznamů z uložiště je jasným favortiem Datastore API, toto rozhraní je pro výběr optimalizován, jelikož výběr bývá u většiny aplikací několikanásobně častější než ostatní operace. Na druhém místě se umístil přístup pomocí JPA a o něco pomalejší je JDO.
 
 \begin{table}[h]
 \centering
-\caption{Tabulka porovnání výběru 1~000 entit }\label{tab:select}
+\caption{Tabulka porovnání výběru 1~000 entit (údaje jsou v uvedeny v milisekundách)}\label{tab:select}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|}
    \hline
-	& 1		& 2		& 3		& 4		& 5		& 6		& 7		& 8		& 9		& 10		& průměr \\
+pořadí testu	& 1		& 2		& 3		& 4		& 5		& 6		& 7		& 8		& 9		& 10		& průměr \\
    \hline
 Datastore API	& 1591	& 1649	& 1736	& 1708	& 2292	& 1752	& 1768	& 1645	& 1738	& 1645	& 1752.4 \\
 JPA	& 2677	& 2438	& 2518	& 2345	& 2321	& 2337	& 2253	& 2304	& 2203	& 2346	& 2374.2 \\
@@ -44,7 +44,7 @@ Pro vkládaní záznamů již nejsou výsledky tolik rozdílné. Vítězem je zn
 
 \begin{table}[h]
 \centering
-\caption{Tabulka porovnání vkládání 100 entit }\label{tab:insert}
+\caption{Tabulka porovnání vkládání 100 entit (údaje jsou v uvedeny v milisekundách)}\label{tab:insert}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|}
    \hline
 	& 1		& 2		& 3		& 4		& 5		& 6		& 7		& 8		& 9		& 10		& průměr \\
@@ -70,7 +70,7 @@ Při úpravě entity překvapivě JPA i JDO pracovaly rychleji než Datastore AP
 
 \begin{table}[h]
 \centering
-\caption{Tabulka porovnání úpravy 100 entit }\label{tab:update}
+\caption{Tabulka porovnání úpravy 100 entit (údaje jsou v uvedeny v milisekundách)}\label{tab:update}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|}
    \hline
 	& 1		& 2		& 3		& 4		& 5		& 6		& 7		& 8		& 9		& 10		& průměr \\
@@ -97,7 +97,7 @@ Pro mazání bylo Datastore API výrazně rychlejší. JPA a JDO na tom byly s r
 
 \begin{table}[h]
 \centering
-\caption{Tabulka porovnání mazání 100 entit }\label{tab:delete}
+\caption{Tabulka porovnání mazání 100 entit (údaje jsou v uvedeny v milisekundách)}\label{tab:delete}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|}
    \hline
 	& 1		& 2		& 3		& 4		& 5		& 6		& 7		& 8		& 9		& 10		& průměr \\
@@ -118,16 +118,18 @@ JDO	& 2447	& 2345	& 2341	& 2619	& 2799	& 2912	& 2581	& 2632	& 2411	& 2192	& 2527
 \end{figure}
 
 \section{Porovnání výsledků testů práce s Datastore}
-Celkově tedy v testech dopadlo dle očekávání nejrychleji Datastore API. Jedná se o přímočarý přístup k uložišti a nestará se o další transforamce. Bohužel tato rychlost je vykoupena složitější implementací a odlišným způsobem práce. Při úpravě dat bylo podle výsledků testů Datastore API nejpomalejší, to bylo způsobeno odlišným způsobem práce, kdy jsme objekt vybírali z databáze a poté upravovali. Je to dáno rozdílností práce s Datastore API oproti JPA a JDO, pravděpodobně by se nám pomocí optimalizací podařilo dostat výsledky na stejnou úroveň jako ostatní dvě řešení. Každopádně i přesto je Datastore API jasným vítězem. JPA a JDO jsou na tom podl prvedených testů výkonostně podobně. JPA vyniká v rychlosti při čtení a mazání, kdežto JDO je rychlejší při vkládání a úpravě. Práce s těmito dvěma přístupy je podobná a záleží tedy hlavně na zvyku a zkušesnosti programátora, kterou si vybere. Při velkém počtu čtení z Datastore oproti ostatním operacím je z těchto dvou přístupů je z hlediska rychlosti vhodnější využít právě JPA.
+Celkově tedy v testech dopadlo dle očekávání nejrychleji Datastore API. Jedná se o přímočarý přístup k uložišti a nestará se o další transforamce. Bohužel tato rychlost je vykoupena složitější implementací a odlišným způsobem práce. Při úpravě dat bylo podle výsledků testů Datastore API nejpomalejší, to bylo způsobeno odlišným způsobem práce, kdy jsme objekt vybírali z databáze a poté upravovali. Je to dáno rozdílností práce s Datastore API oproti JPA a JDO, pravděpodobně by se nám pomocí optimalizací podařilo dostat výsledky na stejnou úroveň jako ostatní dvě řešení. Každopádně i přesto je Datastore API jasným vítězem. JPA a JDO jsou na tom podle provedených testů výkonnostně podobně. JPA vyniká v rychlosti při čtení a mazání, kdežto JDO je rychlejší při vkládání a úpravě. Práce s těmito dvěma přístupy je podobná a záleží tedy hlavně na zvyku a zkušenosti programátora, kterou si vybere. Při velkém počtu čtení z Datastore oproti ostatním operacím je z těchto dvou přístupů z hlediska rychlosti vhodnější využít právě JPA.
 
 
 \section{Testování zátěže}
-
 Pro testování zátěže bylo na stránku posláno velké množství požadavků a cílem bylo zjistit, jak bude celá aplikace na takovýto nápor reagovat. Aby nešlo jen o jednoduché vybírání jedné stránky, tak bylo do aplikace vloženo celkem 10~000 stránek. Každá ze stránek má nastavenou svoji šablonu, takže ta se při sestavování odpovědi musela z Datastore získat také. Celá tato aplikace je veřejně přístupná na webu na adrese: \verb|http://slim3cms.appspot.com|.
 
 
-Samotné testování probíhalo pomocí programu Apache Bench (ab). Jedná se o jednoduch program pro příkazovou řádku, kde specifikujeme adresu serveru, počet požadavků a počet souběžých požadavků, které se mají na server odeslat. Program poté vypíše výsledkym testů. Vždy před testem byla aplikace navštívena, aby byla alespoň jedna instance aktivní.
+Samotné testování probíhalo pomocí programu Apache Bench (ab). Jedná se o jednoduchý program pro příkazovou řádku, kde specifikujeme adresu serveru, počet požadavků a počet souběžných požadavků, které se mají na server odeslat. Program poté vypíše výsledky testů. Vždy před testem byla aplikace navštívena, aby byla alespoň jedna instance aktivní.
 
+\lstset{language=bash}
+\lstset{numbers=none}
+\lstset{frame=none}
 \begin{lstlisting}[caption={Testování 1000 požadavků se 100 souběžnými spojeními},label=lst:testOne,belowcaptionskip=0.4cm]
 ab -n 1000 -c 100 http://slim3cms.appspot.com
 \end{lstlisting}
@@ -137,15 +139,15 @@ Při prvním testu bylo posláno dohromady 1~000 požadavků se 100 současnými
 Při druhém testu byly parametry stejné. Tento test následoval hned po prvním, kdy byla většina instancí stále aktivních a trval test pouhých 8,619 vteřin. Což je skoro polovina původního času, to díky již připraveným instancím, které stihly rychle zareagovat na vzniklý nápor. Na konci testu bylo aktivních 20 instancí.
 
 \begin{lstlisting}[caption={Testování 4000 požadavků s 1000 souběžnými spojeními},label=lst:testThree,belowcaptionskip=0.4cm]
-ab -n 1000 -c 100 http://slim3cms.appspot.com
+ab -n 4000 -c 1000 http://slim3cms.appspot.com
 \end{lstlisting}
 
 Při posledním testu bylo posláno 4~000 požadavků s 1~000 současnými připojeními. Celý test trval 15,748 vteřin a po skončení bylo aktivních 30 instancí aplikace.
 
-Bohužel více požadavků se mi odeslat nepodařilo, jelikož při překročení 4~000 požadavků program Apache Bench nechtěl test dokončit. Problém nebude u App Engine, protože se mi toto stávalo i u jiných serverů. Testování jsem prováděl na 10~Mb domácí lince. Kvóty byly tímto testem poznamenány minimálně až na procesorový čas. Toho byo spotřebováno 1,24~hodiny, tedy 19\% z celkových 6,5~hodiny za~den. Jednalo se ale i o zdroje spotřebované při vkládání 10.000 entit do aplikace, takže na samotný test připadá zhruba 1 hodina procesorového času.
+Bohužel více požadavků se mi odeslat nepodařilo, jelikož při překročení 4~000 požadavků program Apache Bench nechtěl test dokončit. Problém nebude u App Engine, protože se mi toto stávalo i u jiných serverů. Testování jsem prováděl na 10~Mb domácí lince. Kvóty byly tímto testem poznamenány minimálně až na procesorový čas. Toho bylo spotřebováno 1,24~hodiny, tedy 19\% z celkových 6,5~hodiny za~den. Jednalo se ale i o zdroje spotřebované při vkládání 10.000 entit do aplikace, takže na samotný test připadá zhruba 1 hodina procesorového času.
 
-Test by mohl být zajímavější, pokud by App Engine dostával požadavky z více současně spuštěných programu Apache Bench z rozdílných sítí. Dalo by se předpokládat, že by byly nahrány další instance podle potřeby a požadavy by byly rovnoměrně rozdistibuovány. Ke znatelnému zatížení App Engine by byla potřeba mnohem větší infrastruktura a zdroje, příkladem může být právě aplikace www.officialroyalwedding2011.org [viz kapitola 2.9], kde bylo požadavků mnohonásobně více a cloud si s nimi dokázal bez problému poradit.
+Test by mohl být zajímavější, pokud by App Engine dostával požadavky z více současně spuštěných programu Apache Bench z rozdílných sítí. Dalo by se předpokládat, že by byly nahrány další instance podle potřeby a požadavy by byly rovnoměrně rozdistibuovány. Ke znatelnému zatížení App Engine by byla potřeba mnohem větší infrastruktura a zdroje, příkladem může být právě aplikace www.officialroyalwedding2011.org (viz kapitola 2.9), kde bylo požadavků mnohonásobně více a cloud si s nimi dokázal bez problému poradit.
 
-Velkého zatížení naší aplikace se tedy na App Engine nemusíme bát, cloud se s nimi dokáže správně vypořádat a rozdělit zátěž. Jediné co se může stát je, že přesáhneme něterou z kvót, ale ty lze jednoduše dokoupit. Velkou výhodou je samostatná správa počtu instancí podle potřeby, App Engine takto dokáže efekivně využít hardwarové zdroje.
+Velkého zatížení naší aplikace se tedy na App Engine nemusíme bát, cloud se s nimi dokáže správně vypořádat a rozdělit zátěž. Jediné co se může stát je, že přesáhneme něterou z kvót, ale ty lze jednoduše dokoupit. Velkou výhodou je samostatná správa počtu instancí podle potřeby, App Engine takto dokáže efektivně využít hardwarové zdroje.
 
 [tabulka]
