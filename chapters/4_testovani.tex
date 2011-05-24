@@ -119,3 +119,33 @@ JDO	& 2447	& 2345	& 2341	& 2619	& 2799	& 2912	& 2581	& 2632	& 2411	& 2192	& 2527
 
 \section{Porovnání výsledků testů práce s Datastore}
 Celkově tedy v testech dopadlo dle očekávání nejrychleji Datastore API. Jedná se o přímočarý přístup k uložišti a nestará se o další transforamce. Bohužel tato rychlost je vykoupena složitější implementací a odlišným způsobem práce. Při úpravě dat bylo podle výsledků testů Datastore API nejpomalejší, to bylo způsobeno odlišným způsobem práce, kdy jsme objekt vybírali z databáze a poté upravovali. Je to dáno rozdílností práce s Datastore API oproti JPA a JDO, pravděpodobně by se nám pomocí optimalizací podařilo dostat výsledky na stejnou úroveň jako ostatní dvě řešení. Každopádně i přesto je Datastore API jasným vítězem. JPA a JDO jsou na tom podl prvedených testů výkonostně podobně. JPA vyniká v rychlosti při čtení a mazání, kdežto JDO je rychlejší při vkládání a úpravě. Práce s těmito dvěma přístupy je podobná a záleží tedy hlavně na zvyku a zkušesnosti programátora, kterou si vybere. Při velkém počtu čtení z Datastore oproti ostatním operacím je z těchto dvou přístupů je z hlediska rychlosti vhodnější využít právě JPA.
+
+
+\section{Testování zátěže}
+
+Pro testování zátěže bylo na stránku posláno velké množství požadavků a cílem bylo zjistit, jak bude celá aplikace na takovýto nápor reagovat. Aby nešlo jen o jednoduché vybírání jedné stránky, tak bylo do aplikace vloženo celkem 10~000 stránek. Každá ze stránek má nastavenou svoji šablonu, takže ta se při sestavování odpovědi musela z Datastore získat také. Celá tato aplikace je veřejně přístupná na webu na adrese: \verb|http://slim3cms.appspot.com|.
+
+
+Samotné testování probíhalo pomocí programu Apache Bench (ab). Jedná se o jednoduch program pro příkazovou řádku, kde specifikujeme adresu serveru, počet požadavků a počet souběžých požadavků, které se mají na server odeslat. Program poté vypíše výsledkym testů. Vždy před testem byla aplikace navštívena, aby byla alespoň jedna instance aktivní.
+
+\begin{lstlisting}[caption={Testování 1000 požadavků se 100 souběžnými spojeními},label=lst:testOne,belowcaptionskip=0.4cm]
+ab -n 1000 -c 100 http://slim3cms.appspot.com
+\end{lstlisting}
+
+Při prvním testu bylo posláno dohromady 1~000 požadavků se 100 současnými připojeními. Celý test trval 16,656 vteřin a po skončení testu bylo na App Engine nahráno 13 akivních instancí.
+
+Při druhém testu byly parametry stejné. Tento test následoval hned po prvním, kdy byla většina instancí stále aktivních a trval test pouhých 8,619 vteřin. Což je skoro polovina původního času, to díky již připraveným instancím, které stihly rychle zareagovat na vzniklý nápor. Na konci testu bylo aktivních 20 instancí.
+
+\begin{lstlisting}[caption={Testování 4000 požadavků s 1000 souběžnými spojeními},label=lst:testThree,belowcaptionskip=0.4cm]
+ab -n 1000 -c 100 http://slim3cms.appspot.com
+\end{lstlisting}
+
+Při posledním testu bylo posláno 4~000 požadavků s 1~000 současnými připojeními. Celý test trval 15,748 vteřin a po skončení bylo aktivních 30 instancí aplikace.
+
+Bohužel více požadavků se mi odeslat nepodařilo, jelikož při překročení 4~000 požadavků program Apache Bench nechtěl test dokončit. Problém nebude u App Engine, protože se mi toto stávalo i u jiných serverů. Testování jsem prováděl na 10~Mb domácí lince. Kvóty byly tímto testem poznamenány minimálně až na procesorový čas. Toho byo spotřebováno 1,24~hodiny, tedy 19\% z celkových 6,5~hodiny za~den. Jednalo se ale i o zdroje spotřebované při vkládání 10.000 entit do aplikace, takže na samotný test připadá zhruba 1 hodina procesorového času.
+
+Test by mohl být zajímavější, pokud by App Engine dostával požadavky z více současně spuštěných programu Apache Bench z rozdílných sítí. Dalo by se předpokládat, že by byly nahrány další instance podle potřeby a požadavy by byly rovnoměrně rozdistibuovány. Ke znatelnému zatížení App Engine by byla potřeba mnohem větší infrastruktura a zdroje, příkladem může být právě aplikace www.officialroyalwedding2011.org [viz kapitola 2.9], kde bylo požadavků mnohonásobně více a cloud si s nimi dokázal bez problému poradit.
+
+Velkého zatížení naší aplikace se tedy na App Engine nemusíme bát, cloud se s nimi dokáže správně vypořádat a rozdělit zátěž. Jediné co se může stát je, že přesáhneme něterou z kvót, ale ty lze jednoduše dokoupit. Velkou výhodou je samostatná správa počtu instancí podle potřeby, App Engine takto dokáže efekivně využít hardwarové zdroje.
+
+[tabulka]

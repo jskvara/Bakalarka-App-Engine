@@ -50,18 +50,19 @@
 \contentsline {section}{\numberline {4.5}Test \IeC {\'u}prava}{29}{section.4.5}
 \contentsline {section}{\numberline {4.6}Test maz\IeC {\'a}n\IeC {\'\i }}{29}{section.4.6}
 \contentsline {section}{\numberline {4.7}Porovn\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} test\IeC {\r u} pr\IeC {\'a}ce s Datastore}{30}{section.4.7}
-\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{33}{chapter.5}
-\contentsline {chapter}{\numberline {A}Testov\IeC {\'a}n\IeC {\'\i } zapln\IeC {\v e}n\IeC {\'\i } str\IeC {\'a}nky a odsazen\IeC {\'\i } odstavc\IeC {\r u}}{35}{appendix.A}
-\contentsline {chapter}{\numberline {B}Pokyny a n\IeC {\'a}vody k form\IeC {\'a}tov\IeC {\'a}n\IeC {\'\i } textu pr\IeC {\'a}ce}{37}{appendix.B}
-\contentsline {section}{\numberline {B.1}Vkl\IeC {\'a}d\IeC {\'a}n\IeC {\'\i } obr\IeC {\'a}zk\IeC {\r u}}{37}{section.B.1}
-\contentsline {section}{\numberline {B.2}Kreslen\IeC {\'\i } obr\IeC {\'a}zk\IeC {\r u}}{38}{section.B.2}
-\contentsline {section}{\numberline {B.3}Tabulky}{38}{section.B.3}
-\contentsline {section}{\numberline {B.4}Odkazy v textu}{39}{section.B.4}
-\contentsline {subsection}{\numberline {B.4.1}Odkazy na literaturu}{39}{subsection.B.4.1}
-\contentsline {subsection}{\numberline {B.4.2}Odkazy na obr\IeC {\'a}zky, tabulky a kapitoly}{41}{subsection.B.4.2}
-\contentsline {section}{\numberline {B.5}Rovnice, centrovan\IeC {\'a}, \IeC {\v c}\IeC {\'\i }slovan\IeC {\'a} matematika}{41}{section.B.5}
-\contentsline {section}{\numberline {B.6}K\IeC {\'o}dy programu}{42}{section.B.6}
-\contentsline {section}{\numberline {B.7}Dal\IeC {\v s}\IeC {\'\i } pozn\IeC {\'a}mky}{42}{section.B.7}
-\contentsline {subsection}{\numberline {B.7.1}\IeC {\v C}esk\IeC {\'e} uvozovky}{42}{subsection.B.7.1}
-\contentsline {chapter}{\numberline {C}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{43}{appendix.C}
-\contentsline {chapter}{\numberline {D}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{45}{appendix.D}
+\contentsline {section}{\numberline {4.8}Testov\IeC {\'a}n\IeC {\'\i } z\IeC {\'a}t\IeC {\v e}\IeC {\v z}e}{31}{section.4.8}
+\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{35}{chapter.5}
+\contentsline {chapter}{\numberline {A}Testov\IeC {\'a}n\IeC {\'\i } zapln\IeC {\v e}n\IeC {\'\i } str\IeC {\'a}nky a odsazen\IeC {\'\i } odstavc\IeC {\r u}}{37}{appendix.A}
+\contentsline {chapter}{\numberline {B}Pokyny a n\IeC {\'a}vody k form\IeC {\'a}tov\IeC {\'a}n\IeC {\'\i } textu pr\IeC {\'a}ce}{39}{appendix.B}
+\contentsline {section}{\numberline {B.1}Vkl\IeC {\'a}d\IeC {\'a}n\IeC {\'\i } obr\IeC {\'a}zk\IeC {\r u}}{39}{section.B.1}
+\contentsline {section}{\numberline {B.2}Kreslen\IeC {\'\i } obr\IeC {\'a}zk\IeC {\r u}}{40}{section.B.2}
+\contentsline {section}{\numberline {B.3}Tabulky}{40}{section.B.3}
+\contentsline {section}{\numberline {B.4}Odkazy v textu}{41}{section.B.4}
+\contentsline {subsection}{\numberline {B.4.1}Odkazy na literaturu}{41}{subsection.B.4.1}
+\contentsline {subsection}{\numberline {B.4.2}Odkazy na obr\IeC {\'a}zky, tabulky a kapitoly}{43}{subsection.B.4.2}
+\contentsline {section}{\numberline {B.5}Rovnice, centrovan\IeC {\'a}, \IeC {\v c}\IeC {\'\i }slovan\IeC {\'a} matematika}{43}{section.B.5}
+\contentsline {section}{\numberline {B.6}K\IeC {\'o}dy programu}{44}{section.B.6}
+\contentsline {section}{\numberline {B.7}Dal\IeC {\v s}\IeC {\'\i } pozn\IeC {\'a}mky}{44}{section.B.7}
+\contentsline {subsection}{\numberline {B.7.1}\IeC {\v C}esk\IeC {\'e} uvozovky}{44}{subsection.B.7.1}
+\contentsline {chapter}{\numberline {C}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{45}{appendix.C}
+\contentsline {chapter}{\numberline {D}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{47}{appendix.D}
