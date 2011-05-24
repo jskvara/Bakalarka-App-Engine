@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  24 MAY 2011 04:28
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  24 MAY 2011 15:08
 entering extended mode
  %&-line parsing enabled.
 **bakalarka.tex
@@ -537,7 +537,7 @@ Obor: Softwarov\IeC {\'e} in\IeC {\v z}en\IeC {\'y}rstv\IeC {\'\i }
 Jmeno: Jakub \IeC {\v S}kv\IeC {\'a}ra
 Nazev prace: Ov\IeC {\v e}\IeC {\v r}en\IeC {\'\i } \IeC {\v s}k\IeC {\'a}lovat
 elnosti Google App Engine aplikac\IeC {\'\i } 
-Vedouci prace: Ing Marek \IeC {\v S}m\IeC {\'\i }d
+Vedouci prace: Ing. Marek \IeC {\v S}m\IeC {\'\i }d
 ***************************************************
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 203.
 
@@ -834,6 +834,13 @@ ní výkonu server· -
 
 
 ]
+Overfull \hbox (145.69164pt too wide) in paragraph at lines 15--16
+\T1/cmr/m/n/10.95 sluºeb s grafy a dos-tup-ností p°ehledn¥ zo-brazené po dnech,
+ v²e je na adrese: []\T1/cmtt/m/n/10.95 http://code.google.com/status/appengine
+/\T1/cmr/m/n/10.95 . 
+ []
+
+
 Overfull \hbox (30.33324pt too wide) in paragraph at lines 23--32
  [][] 
  []
@@ -902,15 +909,20 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ]
+\openout2 = `chapters/5_zaver.aux'.
+
+ (./chapters/5_zaver.tex
 Kapitola 5.
-No file bakalarka.bbl.
 [35
 
-] [36
 
-]
+]) [36]
+No file bakalarka.bbl.
 P\v {r}\'{\i }loha A.
-[37] [38
+[37
+
+
+] [38
 
 ]
 P\v {r}\'{\i }loha B.
@@ -923,7 +935,7 @@ P\v {r}\'{\i }loha C.
 
 ]
 P\v {r}\'{\i }loha D.
-<figures/seznamcd.pdf, id=903, 793.96625pt x 539.01375pt>
+<figures/seznamcd.pdf, id=906, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
 
 <use figures/seznamcd.pdf> [47 <./figures/seznamcd.pdf>] [48]
@@ -931,7 +943,7 @@ File: figures/seznamcd.pdf Graphic file (type pdf)
 Package natbib Warning: There were undefined citations.
 
 (./bakalarka.aux (./chapters/2_teorie.aux) (./chapters/3_implementace.aux)
-(./chapters/4_testovani.aux))
+(./chapters/4_testovani.aux) (./chapters/5_zaver.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -940,9 +952,9 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8840 strings out of 495061
- 117804 string characters out of 1182622
- 407979 words of memory out of 3000000
+ 8848 strings out of 495061
+ 117928 string characters out of 1182622
+ 407980 words of memory out of 3000000
  11523 multiletter control sequences out of 15000+50000
  21537 words of font info for 47 fonts, out of 3000000 for 9000
  32 hyphenation exceptions out of 8191
@@ -966,9 +978,9 @@ nappen/ec/ecrm1200.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on bakalarka.pdf (64 pages, 1421033 bytes).
+Output written on bakalarka.pdf (64 pages, 1424794 bytes).
 PDF statistics:
- 1945 PDF objects out of 2073 (max. 8388607)
- 325 named destinations out of 1000 (max. 500000)
+ 1949 PDF objects out of 2073 (max. 8388607)
+ 328 named destinations out of 1000 (max. 500000)
  594 words of extra memory for PDF output out of 10000 (max. 10000000)
 

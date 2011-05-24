@@ -12,7 +12,7 @@ Pro testování samotného uložiště jsem napsal jednoduchou aplikaci s názve
 
 Datastore API je optimalizováno přesně pro uložiště BigTable, používané na App Engine. Jedná se o nejpřímočařejší způsob a tak bylo očekáváno, že i tento způsob práce vyjde z testů nelépe. JPA a JDO používají anotace pro zjednodušení celé práce, ale vše je vykoupeno nutností tato data zpracovávat a převádět. To samozdřejmě celou práci zpomaluje a dá se očekávat, že tyto přístupy vyjdou z testu rychlosti práce podobně, ale pomaleji než Datastore API.
 
-První kolo testování probíhalo v odpoledních hodinách a kvůli vlivu ostatních aplikací byly některé výsledky výrazně odlišné, čož celé porovnání zkreslovalo. Proto byly testy provedeny znovu kolem půlnoci našeho času, kde k takto výrazným odchylkám nedocházelo, ale přesto byl vliv ostatních aplikací někdy znatelný.
+První kolo testování probíhalo v odpoledních hodinách a kvůli vlivu ostatních aplikací byly některé výsledky výrazně odlišné, čož celé porovnání zkreslovalo. Proto byly testy provedeny znovu kolem půlnoci našeho času, kde k takto výrazným odchylkám nedocházelo, ale přesto byl vliv ostatních aplikací někdy znatelný. App Engine poskytuje statisky využití svých služeb s grafy a dostupností přehledně zobrazené po dnech, vše je na  adrese: \verb|http://code.google.com/status/appengine/|.
 
 \section{Test výběru}
 Prvním testem bylo vybrání 1000 entit z Datastore pomocí všech způsobů. Pro vybírání záznamů z uložiště je jasným favortiem Datastore API, toto rozhraní je pro výběr optimalizován, jelikož výběr bývá u většiny aplikací několikanásobně častější než ostatní operace. Na druhém místě se umístil přístup pomocí JPA a o něco pomalejší je JDO.

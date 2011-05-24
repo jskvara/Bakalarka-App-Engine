@@ -51,7 +51,10 @@
 \contentsline {section}{\numberline {4.6}Test maz\IeC {\'a}n\IeC {\'\i }}{29}{section.4.6}
 \contentsline {section}{\numberline {4.7}Porovn\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} test\IeC {\r u} pr\IeC {\'a}ce s Datastore}{30}{section.4.7}
 \contentsline {section}{\numberline {4.8}Testov\IeC {\'a}n\IeC {\'\i } z\IeC {\'a}t\IeC {\v e}\IeC {\v z}e}{31}{section.4.8}
-\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{35}{chapter.5}
+\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r: Zhodnocen\IeC {\'\i }}{35}{chapter.5}
+\contentsline {section}{\numberline {5.1}Jednoduch\IeC {\'e} \IeC {\v s}k\IeC {\'a}lov\IeC {\'a}n\IeC {\'\i }}{35}{section.5.1}
+\contentsline {section}{\numberline {5.2}Zhodnocen\IeC {\'\i } porovn\IeC {\'a}n\IeC {\'\i } Datastore API, JPA, JDO}{35}{section.5.2}
+\contentsline {section}{\numberline {5.3}Zhodnocen\IeC {\'\i } porovn\IeC {\'a}n\IeC {\'\i } test\IeC {\r u} z\IeC {\'a}t\IeC {\v e}\IeC {\v z}e}{35}{section.5.3}
 \contentsline {chapter}{\numberline {A}Testov\IeC {\'a}n\IeC {\'\i } zapln\IeC {\v e}n\IeC {\'\i } str\IeC {\'a}nky a odsazen\IeC {\'\i } odstavc\IeC {\r u}}{37}{appendix.A}
 \contentsline {chapter}{\numberline {B}Pokyny a n\IeC {\'a}vody k form\IeC {\'a}tov\IeC {\'a}n\IeC {\'\i } textu pr\IeC {\'a}ce}{39}{appendix.B}
 \contentsline {section}{\numberline {B.1}Vkl\IeC {\'a}d\IeC {\'a}n\IeC {\'\i } obr\IeC {\'a}zk\IeC {\r u}}{39}{section.B.1}
