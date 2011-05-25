@@ -1,1 +1,16 @@
-\chapter{Úvod}
+\chapter{Úvod: Výběr tématu}
+
+\section{Co je to cloud}
+Pro mou bakalářskou práci jsem si vybral poměrně nové a nezmapované téma a to popis cloudových služeb. Jedná se o nový způsob hostování internetových aplikací a ukládání dat na webu. U klasického způsobu ukládání dat se použije jeden nebo více nezávislých serverů a na něj se nahraje ve většině případů pouze jedna aplikace. Cloud nám přináší nový přístup, místo abychom měli jeden stroj, použijeme více strojů dohromady, které budou spolupracovat. Aplikace žádný rozdíl nepozná a může zde zároveň běžet mnoho programů. 
+
+Důležitým důvodem k využívání cloudů je větší efektivita využití hardware. Pokud je aplikace málo používaná, například v nočních hodinách, jsou zdroje využívány jinými aplikacemi, které mohou obsluhovat uživatele z jiné části světa, kde je třeba odpoledne. Nebo pokud je aplikace vytížena a nestíhá, může systém spustit další instanci té samé aplikace. O rozložení zátěže a správu počtu aplikací se stará cloud samotný.
+
+Další výhodou je možnost dynamicky navyšovat hardwarové parametry infrastruktury přidáváním strojů bez nutnosti přerušit provoz. Cena hardwaru se postupem času snižuje, podle Mooreova zákona\footnote{Mooreův zákon - http://en.wikipedia.org/wiki/Moore's\_law} z roku 1965 se složitost součástek každý rok zdvojnásobí při zachování stejné ceny. Tento zákon platí dodnes a předpokládá se, že bude platit minimálně do roku 2015 až 2020. S možností dynamicky přidávat hardware budeme připraveni rozšiřovat infrastrukturu podle potřeby. O toto se ale starají společnosti poskytující cloudy, nám tedy odpadá nutnost starat se o hardware. 
+
+Nevýhodou cloudu je, že nemáme hardware plně pod kontrolou a musíme se spolehnout na společnost poskytující hosting. Pokud bychom chtěli provozovat vlastní cloud, museli bychom mít obrovskou infrastrukturu a vyvinout vlastní řešení pro efektivní vytížení zdrojů všech aplikací. Takovouto možnost má jen pár společností na světě, které patří k těm největším.
+
+\section{Motivace pro toto téma}
+Hlavní motivací k výběru tohoto tématu bylo, že se v poslení době stává cloud čím dál tím více používanější. Jedná se o úplně nový přístup a tak o cloudech zatím nenajdeme mnoho zdrojů. Přišlo mi zajímavé vyzkoušet a prověřit možnosti jednoho z těchtno cloudů. Jak se bude chovat při vysokém počtu požadavků, kde jsou limity takového cloudu a v neposlední řadě kolik hardwarových prostředků bude při zátěži spotřebováno a jaká bude cena.
+
+\section{Průběh testování}
+V mé bakalářké práci jsem ověřil a porovnal rychlost různých řešení práce s uložištěm dat na cloudu. Pro tento test jsem připravil jednoduchou aplikaci. Poté jsem napsal větší a složitější aplikaci, kterou jsem následně otestoval vysokým počtem požadavků. Porovnával jsem jak se bude cloud chovat a jak zařídí rozložení zátěže.
