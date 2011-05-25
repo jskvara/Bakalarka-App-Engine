@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  25 MAY 2011 03:25
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  25 MAY 2011 14:37
 entering extended mode
  %&-line parsing enabled.
 **bakalarka.tex
@@ -540,29 +540,18 @@ Nazev prace: Ov\IeC {\v e}\IeC {\v r}en\IeC {\'\i } \IeC {\v s}k\IeC {\'a}lovat
 elnosti Google App Engine aplikac\IeC {\'\i } 
 Vedouci prace: Ing. Marek \IeC {\v S}m\IeC {\'\i }d
 ***************************************************
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 203.
-
-(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 203.
- [1
-
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
-
-]
-<figures/LogoCVUT.pdf, id=312, 93.34875pt x 70.2625pt>
+<figures/LogoCVUT.pdf, id=251, 93.34875pt x 70.2625pt>
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
-<use figures/LogoCVUT.pdf> [3 <./figures/LogoCVUT.pdf>] [4
+<use figures/LogoCVUT.pdf> [3
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/LogoCVUT.pdf>] [
+4
 
 ] [5] [6
 
-] [7]
-[8
+] [7] [8
 
 ] [9
 
@@ -575,7 +564,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 4.
- [11])
+
+[11])
 \tf@toc=\write4
 \openout4 = `bakalarka.toc'.
 
@@ -633,11 +623,11 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 
 
 ]
-<figures/iaas-paas-saas.png, id=521, 729.72626pt x 387.4475pt>
+<figures/iaas-paas-saas.png, id=446, 729.72626pt x 387.4475pt>
 File: figures/iaas-paas-saas.png Graphic file (type png)
 
 <use figures/iaas-paas-saas.png>
-<figures/horizontal-vertical-scalability.jpeg, id=523, 1027.84pt x 770.88pt>
+<figures/horizontal-vertical-scalability.jpeg, id=448, 1027.84pt x 770.88pt>
 File: figures/horizontal-vertical-scalability.jpeg Graphic file (type jpg)
 
 <use figures/horizontal-vertical-scalability.jpeg>
@@ -650,18 +640,18 @@ Overfull \hbox (4.67326pt too wide) in paragraph at lines 71--71
 []\T1/cmr/bx/n/14.4 Porovnání Ama-zon Web Ser-vices, Win-dows Azure a Google
  []
 
-<figures/aws-logo.png, id=537, 602.25pt x 301.125pt>
+<figures/aws-logo.png, id=463, 602.25pt x 301.125pt>
 File: figures/aws-logo.png Graphic file (type png)
 
 <use figures/aws-logo.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6] <figures/azure-logo.jpg, id=543, 305.3662pt x 172.02296pt>
+[6] <figures/azure-logo.jpg, id=469, 305.3662pt x 172.02296pt>
 File: figures/azure-logo.jpg Graphic file (type jpg)
 
 <use figures/azure-logo.jpg>
-<figures/app-engine-logo.jpg, id=544, 172.645pt x 176.66pt>
+<figures/app-engine-logo.jpg, id=470, 172.645pt x 176.66pt>
 File: figures/app-engine-logo.jpg Graphic file (type jpg)
 
 <use figures/app-engine-logo.jpg>
@@ -733,7 +723,7 @@ Overfull \hbox (5.26723pt too wide) in paragraph at lines 202--203
 Package natbib Warning: Citation `whitehouse-app' on page 14 undefined on input
  line 204.
 
-<figures/townhallgraphic.png, id=601, 1606.0pt x 952.55875pt>
+<figures/townhallgraphic.png, id=527, 1606.0pt x 952.55875pt>
 File: figures/townhallgraphic.png Graphic file (type png)
 
 <use figures/townhallgraphic.png>
@@ -793,7 +783,7 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 LaTeX Warning: Reference `lst:bidirectionalOneToManyGetEntity' on page 20 undef
 ined on input line 48.
 
-[20] [21] <figures/cms-uml.png, id=758, 783.92876pt x 319.1925pt>
+[20] [21] <figures/cms-uml.png, id=683, 783.92876pt x 319.1925pt>
 File: figures/cms-uml.png Graphic file (type png)
 
 <use figures/cms-uml.png> [22 <./figures/cms-uml.png>]
@@ -843,7 +833,7 @@ Overfull \hbox (30.33324pt too wide) in paragraph at lines 23--32
  [][] 
  []
 
-<figures/select.png, id=850, 602.25pt x 372.39125pt>
+<figures/select.png, id=775, 602.25pt x 372.39125pt>
 File: figures/select.png Graphic file (type png)
  <use figures/select.png>
 Overfull \hbox (34.23985pt too wide) in paragraph at lines 36--37
@@ -861,7 +851,7 @@ Overfull \hbox (30.33324pt too wide) in paragraph at lines 48--57
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/insert.png, id=851, 602.25pt x 372.39125pt>
+<figures/insert.png, id=776, 602.25pt x 372.39125pt>
 File: figures/insert.png Graphic file (type png)
  <use figures/insert.png>
 Overfull \hbox (34.23985pt too wide) in paragraph at lines 61--62
@@ -885,7 +875,7 @@ Overfull \hbox (30.33324pt too wide) in paragraph at lines 74--83
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/update.png, id=857, 602.25pt x 372.39125pt>
+<figures/update.png, id=782, 602.25pt x 372.39125pt>
 File: figures/update.png Graphic file (type png)
  <use figures/update.png>
 Overfull \hbox (34.23985pt too wide) in paragraph at lines 87--88
@@ -903,7 +893,7 @@ Overfull \hbox (30.33324pt too wide) in paragraph at lines 101--110
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/delete.png, id=858, 602.25pt x 372.39125pt>
+<figures/delete.png, id=783, 602.25pt x 372.39125pt>
 File: figures/delete.png Graphic file (type png)
  <use figures/delete.png>
 Overfull \hbox (34.23985pt too wide) in paragraph at lines 114--115
@@ -975,19 +965,10 @@ P\v {r}\'{\i }loha A.
 
 ]
 P\v {r}\'{\i }loha B.
-File: figures/LogoCVUT.pdf Graphic file (type pdf)
-<use figures/LogoCVUT.pdf> [39] [40] [41] [42] [43] [44]
-P\v {r}\'{\i }loha C.
-[45
-
-] [46
-
-]
-P\v {r}\'{\i }loha D.
-<figures/seznamcd.pdf, id=959, 793.96625pt x 539.01375pt>
+<figures/seznamcd.pdf, id=836, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
 
-<use figures/seznamcd.pdf> [47 <./figures/seznamcd.pdf>] [48]
+<use figures/seznamcd.pdf> [39 <./figures/seznamcd.pdf>]
 
 Package natbib Warning: There were undefined citations.
 
@@ -1002,35 +983,31 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8955 strings out of 495061
- 119315 string characters out of 1182622
- 428264 words of memory out of 3000000
- 11606 multiletter control sequences out of 15000+50000
- 21537 words of font info for 47 fonts, out of 3000000 for 9000
+ 8881 strings out of 495061
+ 118379 string characters out of 1182622
+ 428095 words of memory out of 3000000
+ 11569 multiletter control sequences out of 15000+50000
+ 20461 words of font info for 45 fonts, out of 3000000 for 9000
  32 hyphenation exceptions out of 8191
- 38i,9n,47p,1824b,1843s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home
-/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecit0900.600pk> </home/skvaros/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home/skvaros/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/skvaros/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecti1095.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ectt1095.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecrm0900.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm08
-00.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1095.600pk>
- </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/s
+ 38i,8n,47p,1824b,1843s stack positions out of 5000i,500n,10000p,200000b,50000s
+ </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecit0900.600pk> </home
+/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> </home/skvaros/
+.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/skvaros/.texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/skvaros/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ectt1095.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/
+jknappen/ec/ecrm0900.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecrm0800.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl10
+95.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk>
+ </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/s
 kvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/skvaros/.t
 exmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/skvaros/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecti1440.600pk> </home/skvaros/.texmf-var/fonts/pk/
-ljfour/jknappen/ec/ecbx1440.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jk
-nappen/ec/ecrm1200.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecrm1095.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488
-.600pk></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texm
-f-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on bakalarka.pdf (64 pages, 1438626 bytes).
+fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/skvaros/.texmf-var/fonts/pk/
+ljfour/jknappen/ec/ecti1440.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jk
+nappen/ec/ecbx1440.600pk> </home/skvaros/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecrm1200.600pk>
+Output written on bakalarka.pdf (53 pages, 1332313 bytes).
 PDF statistics:
- 2002 PDF objects out of 2073 (max. 8388607)
- 339 named destinations out of 1000 (max. 500000)
- 658 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1735 PDF objects out of 2073 (max. 8388607)
+ 307 named destinations out of 1000 (max. 500000)
+ 562 words of extra memory for PDF output out of 10000 (max. 10000000)
 

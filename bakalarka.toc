@@ -60,17 +60,5 @@
 \contentsline {section}{\numberline {5.2}Zhodnocen\IeC {\'\i } porovn\IeC {\'a}n\IeC {\'\i } Datastore API, JPA, JDO}{35}{section.5.2}
 \contentsline {section}{\numberline {5.3}Zhodnocen\IeC {\'\i } porovn\IeC {\'a}n\IeC {\'\i } test\IeC {\r u} z\IeC {\'a}t\IeC {\v e}\IeC {\v z}e}{35}{section.5.3}
 \contentsline {section}{\numberline {5.4}Osobn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }nos}{36}{section.5.4}
-\contentsline {chapter}{\numberline {A}Testov\IeC {\'a}n\IeC {\'\i } zapln\IeC {\v e}n\IeC {\'\i } str\IeC {\'a}nky a odsazen\IeC {\'\i } odstavc\IeC {\r u}}{37}{appendix.A}
-\contentsline {chapter}{\numberline {B}Pokyny a n\IeC {\'a}vody k form\IeC {\'a}tov\IeC {\'a}n\IeC {\'\i } textu pr\IeC {\'a}ce}{39}{appendix.B}
-\contentsline {section}{\numberline {B.1}Vkl\IeC {\'a}d\IeC {\'a}n\IeC {\'\i } obr\IeC {\'a}zk\IeC {\r u}}{39}{section.B.1}
-\contentsline {section}{\numberline {B.2}Kreslen\IeC {\'\i } obr\IeC {\'a}zk\IeC {\r u}}{40}{section.B.2}
-\contentsline {section}{\numberline {B.3}Tabulky}{40}{section.B.3}
-\contentsline {section}{\numberline {B.4}Odkazy v textu}{41}{section.B.4}
-\contentsline {subsection}{\numberline {B.4.1}Odkazy na literaturu}{41}{subsection.B.4.1}
-\contentsline {subsection}{\numberline {B.4.2}Odkazy na obr\IeC {\'a}zky, tabulky a kapitoly}{43}{subsection.B.4.2}
-\contentsline {section}{\numberline {B.5}Rovnice, centrovan\IeC {\'a}, \IeC {\v c}\IeC {\'\i }slovan\IeC {\'a} matematika}{43}{section.B.5}
-\contentsline {section}{\numberline {B.6}K\IeC {\'o}dy programu}{44}{section.B.6}
-\contentsline {section}{\numberline {B.7}Dal\IeC {\v s}\IeC {\'\i } pozn\IeC {\'a}mky}{44}{section.B.7}
-\contentsline {subsection}{\numberline {B.7.1}\IeC {\v C}esk\IeC {\'e} uvozovky}{44}{subsection.B.7.1}
-\contentsline {chapter}{\numberline {C}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{45}{appendix.C}
-\contentsline {chapter}{\numberline {D}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{47}{appendix.D}
+\contentsline {chapter}{\numberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{37}{appendix.A}
+\contentsline {chapter}{\numberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{39}{appendix.B}
