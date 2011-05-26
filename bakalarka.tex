@@ -57,6 +57,7 @@
 \lstset{breaklines=true}
 \lstset{frame=single}
 \lstset{tabsize=4}
+\renewcommand*\lstlistingname{Zdrojový kód:}
 
 
 
@@ -201,8 +202,6 @@ Chtěl bych poděkovat svému vedoucímu panu Ing. Marku Šmídovi, za ochotu a 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%   Prohlaseni / Declaration 
 
 \declaration{V~Praze dne 27.\,5.\,2011}
-%\declaration{In Kořenovice nad Bečvárkou on May 15, 2008}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%    Abstract 
  
@@ -212,8 +211,6 @@ This bachelor thesis describes advantages and disadvantages of a cloud computing
  
 The second part deals with programming a few small appliacations for testing and comparing performance of the storage. One larger application was made and is described its structure and architecture. Scalability and performance of this appliacation were tested using large amount of requests. All the results are summarized and compared in the conclusion.
 
-% Prace v cestine musi krome abstraktu v anglictine obsahovat i
-% abstrakt v cestine.
 \vglue60mm
 
 \noindent{\Huge \textbf{Abstrakt}}
@@ -222,7 +219,7 @@ The second part deals with programming a few small appliacations for testing and
 \noindent
 Tato bakalářská práce popisuje výhody a nevýhody použití cloudu. Rozebírá, které aplikace se hodí pro umístění do cloudu a také omezení které cloudy přináší. V první části je vysvětleno, co je to cloud obecně, seznamuje čtenáře s různými možnostmi a porovnává je. Pro ověření škálovatelnosti byl vybrán cloud App Engine od firmy Google a je popisován podrobněji.
 
-V druhé části je popsán vývoj několika menších aplikací pro otestování a porovnání rychlosti uložiště. Dále je naprogramována jedna větší aplikace a je rozebrána její celková struktura a architektura. Na této aplikaci byla otesována škálovatelnost a rychlost App Engine pomocí velkého počtu požadavků . Na závěr jsou všechny výsledky přehledně shrnuty a vzájemně porovnány. 
+V druhé části je popsán vývoj několika menších aplikací pro otestování a porovnání rychlosti uložiště. Dále je naprogramována jedna větší aplikace a je rozebrána její celková struktura a architektura. Na této aplikaci byla otestována škálovatelnost a rychlost App~Engine pomocí vysokého počtu požadavků . Na závěr jsou všechny výsledky přehledně shrnuty a vzájemně porovnány. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Obsah / Table of Contents 
@@ -312,8 +309,10 @@ V druhé části je popsán vývoj několika menších aplikací pro otestován�
 \begin{description}
 \item API (Application Programming Interface) --- rozhraní pro programování aplikací \item CEO (Chief executive officer) --- ředitel
 \item Framework --- ucelený soubor knihoven a kódu pomáhající vytvořit aplikaci
+\item HTTP (HyperText Transfer Protokol) --- internetový protkol určený pro výměnu  dokumentů
 \item MVC (Model-View-Controller) --- návrhový vzor oddělující datový model, uživatelské rozhraní a řídící logiku do nezávislých komponent --- http://en.wikipedia.org/wiki/Model-view-controller
-\item URL (Uniform Resource Locator) --- jednoznačný identifikátor pro umístění webových stránek, například: \verb|http://www.example.com| --- http://en.wikipedia.org/wiki/Uniform\_Resource\_Locator
+\item Server --- počítač poskytující určité služby, nejčastěji se používá webový server, ten posílá klientům internetové stránky
+\item URL (Uniform Resource Locator) --- jednoznačný identifikátor pro umístění webových stránek, například: \verb|http://www.example.com| --- \\ http://en.wikipedia.org/wiki/Uniform\_Resource\_Locator
 \end{description}
 
 %*****************************************************************************

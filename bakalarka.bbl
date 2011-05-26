@@ -1,0 +1,66 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Amazon}(2011)]{web:amazon-ec2}
+{Amazon}.
+\newblock Amazon Elastic Compute Cloud, 2011.
+\newblock Dostupn{\'{e}} z: \url{http://aws.amazon.com/ec2/}.
+
+\bibitem[{Apache Software Foundation}(2005)]{web:jdo}
+{Apache Software Foundation}.
+\newblock \emph{Java Data Objects} [online]. 2005. [cit.~27.\,5.\,2011].
+\newblock Dostupn{\'{e}} z: \url{http://db.apache.org/jdo/index.html}.
+
+\bibitem[{Google}(2009{\natexlab{a}})]{web:app-engine}
+{Google}.
+\newblock \emph{App Engine Java Documentation} [online]. 2009{\natexlab{a}}.
+  [cit.~27.\,5.\,2011].
+\newblock Dostupn{\'{e}} z:
+  \url{http://code.google.com/appengine/docs/java/overview.html}.
+
+\bibitem[{Google}(2011)]{web:datastore-api}
+{Google}.
+\newblock \emph{Datastore API} [online]. 2011. [cit.~27.\,5.\,2011].
+\newblock Dostupn{\'{e}} z:
+  \url{http://code.google.com/appengine/docs/java/datastore/}.
+
+\bibitem[{Google}(2010)]{web:royal-wedding}
+{Google}.
+\newblock \emph{Royal Wedding Bells in the Cloud} [online]. 2010.
+  [cit.~27.\,5.\,2011].
+\newblock Dostupn{\'{e}} z:
+  \url{http://googleappengine.blogspot.com/2011/05/royal-wedding-bells-in-clou%
+d.html}.
+
+\bibitem[{Google}(2009{\natexlab{b}})]{web:whitehouse-app}
+{Google}.
+\newblock \emph{Google Developer Products Help WhiteHouse.gov Connect With
+  America} [online]. 2009{\natexlab{b}}. [cit.~27.\,5.\,2011].
+\newblock Dostupn{\'{e}} z:
+  \url{http://googlecode.blogspot.com/2009/04/google-developer-products-help.h%
+tml}.
+
+\bibitem[{National Institute of Standards and
+  Technology}(2011)]{web:nist-cloud}
+{National Institute of Standards and Technology}.
+\newblock \emph{National Institute of Standards and Technology - definice
+  termínu: cloud computing} [online]. 2011. [cit.~27.\,5.\,2011].
+\newblock Dostupn{\'{e}}~z: \url{http://www.nist.gov/itl/cloud/index.cfm}.
+
+\bibitem[{Oracle}(2006)]{web:jpa}
+{Oracle}.
+\newblock \emph{The Java Persistence API - A Simpler Programming Model for
+  Entity Persistence} [online]. 2006. [cit.~27.\,5.\,2011].
+\newblock Dostupn{\'{e}} z:
+  \url{http://www.oracle.com/technetwork/articles/javaee/jpa-137156.html}.
+
+\bibitem[{Slim3}(2009)]{web:slim3}
+{Slim3}.
+\newblock \emph{Slim3 Framework} [online]. 2009. [cit.~27.\,5.\,2011].
+\newblock Dostupn{\'{e}} z: \url{http://sites.google.com/site/slim3appengine/}.
+
+\end{thebibliography}
