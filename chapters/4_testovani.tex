@@ -19,7 +19,7 @@ Prvním testem bylo vybrání 1000 entit z Datastore pomocí všech způsobů. V
 
 \begin{table}[h]
 \centering
-\caption{Tabulka porovnání výběru 1~000 entit (časy [ms])}\label{tab:select}
+\caption[Tabulka porovnání výběru 1~000 entit]{Tabulka porovnání výběru 1~000 entit (časy [ms])}\label{tab:select}
 \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|}
    \hline
 číslo testu	& 1		& 2		& 3		& 4		& 5		& 6		& 7		& 8		& 9		& 10		& průměr \\
@@ -44,7 +44,7 @@ Pro vkládaní záznamů již nejsou výsledky tolik rozdílné. Vítězem je zn
 
 \begin{table}[h]
 \centering
-\caption{Tabulka porovnání vkládání 100 entit (časy [ms])}\label{tab:insert}
+\caption[Tabulka porovnání vkládání 100 entit]{Tabulka porovnání vkládání 100 entit (časy [ms])}\label{tab:insert}
 \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|}
    \hline
 číslo testu	& 1		& 2		& 3		& 4		& 5		& 6		& 7		& 8		& 9		& 10		& průměr \\
@@ -70,7 +70,7 @@ Při úpravě entity překvapivě JPA i JDO pracovaly rychleji než Datastore AP
 
 \begin{table}[h]
 \centering
-\caption{Tabulka porovnání úpravy 100 entit  (časy [ms])}\label{tab:update}
+\caption[Tabulka porovnání úpravy 100 entit]{Tabulka porovnání úpravy 100 entit  (časy [ms])}\label{tab:update}
 \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|}
    \hline
 číslo testu	& 1		& 2		& 3		& 4		& 5		& 6		& 7		& 8		& 9		& 10		& průměr \\
@@ -97,7 +97,7 @@ Pro mazání bylo Datastore API výrazně rychlejší. JPA a JDO na tom byly s r
 
 \begin{table}[h]
 \centering
-\caption{Tabulka porovnání mazání 100 entit (časy [ms])}\label{tab:delete}
+\caption[Tabulka porovnání mazání 100 entit]{Tabulka porovnání mazání 100 entit (časy [ms])}\label{tab:delete}
 \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|}
    \hline
 číslo testu	& 1		& 2		& 3		& 4		& 5		& 6		& 7		& 8		& 9		& 10		& průměr \\
