@@ -318,20 +318,26 @@ V druhé části je popsán vývoj několika menších aplikací pro otestován�
 %*****************************************************************************
 \chapter{Obsah přiloženého CD}
 
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=14cm]{figures/seznamcd}
-\caption{Seznam přiloženého CD}
-\label{fig:seznamcd}
-\end{center}
-\end{figure}
+Zde je výpis adresáře přiloženého CD s popisem obsahu jednotlivých adresářů.
 
-Na GNU/Linuxu si strukturu přiloženého CD můžete snadno vyrobit příkazem:\\ 
-\verb|$ tree . >tree.txt|\\
-Ve vzniklém souboru pak stačí pouze doplnit komentáře.
-
-Z \textbf{README.TXT} (případne index.html apod.)  musí být rovněž zřejmé, jak programy instalovat, spouštět a jaké požadavky mají tyto programy na hardware.
-
-Adresář \textbf{text}  musí obsahovat soubor s vlastním textem práce v PDF nebo PS formátu, který bude později použit pro prezentaci diplomové práce na WWW.
+\begin{itemize}
+\item readme.txt --- popis struktury adresářů, co který adresář obsahuje a krátký popis každé aplikace
+\item text --- tato složka obsahuje text bakalářské práce
+\begin{itemize}
+\item Skvara-BP.pdf --- bakalářská práce ve formátu PDF
+\item source --- zdrojové soubory textu bakalářské práce ve formátu \LaTeX
+\end{itemize}
+\item sources
+\begin{itemize}
+\item Slim3CMS --- zdrojové kódy CMS aplliakace pro App Engine
+\item Slim3CMS.war --- aplikace CMS
+\item TodoListDS --- zdrojové kódy aplikace TodoList používající Datastore API
+\item TodoListDS.war --- aplikace TodoList používající Datastore API
+\item TodoListJDO --- zdrojové kódy aplikace TodoList používající JDO
+\item TodoListJDO.war --- aplikace TodoList používající JDO
+\item TodoListJPA --- zdrojové kódy aplikace TodoList používající JPA
+\item TodoListJPA.war --- aplikace TodoList používající JPA
+\end{itemize}
+\end{itemize}
 
 \end{document}
