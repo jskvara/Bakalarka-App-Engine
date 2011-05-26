@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  26 MAY 2011 07:45
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.4)  26 MAY 2011 14:32
 entering extended mode
  %&-line parsing enabled.
 **bakalarka.tex
@@ -962,7 +962,7 @@ aros/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1440.600pk> </home/skvaros/.tex
 mf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/skvaros/.texmf-var/fo
 nts/pk/ljfour/jknappen/ec/ecrm1200.600pk></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb>
-Output written on bakalarka.pdf (59 pages, 1358115 bytes).
+Output written on bakalarka.pdf (59 pages, 1358110 bytes).
 PDF statistics:
  1822 PDF objects out of 2073 (max. 8388607)
  321 named destinations out of 1000 (max. 500000)
